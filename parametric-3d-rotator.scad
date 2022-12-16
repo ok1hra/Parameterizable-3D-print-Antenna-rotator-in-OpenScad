@@ -27,7 +27,8 @@ http://www.thingiverse.com/thing:3575 and http://www.thingiverse.com/thing:3752
     ScrewHoleTolerance=0.2;
     AntWheelHeight=20;
     InAxisDiameter = 8.4;
-    MotorAxisDiameter=6;
+    MotorAxisDiameter=5.1;
+    MotorShaftFlattening=0.5;
     SmallNumberOfTeeth = 12;
     VerticalSpacing=3;
     PlainBearingHeight=2.1;     // < VerticalSpacing
@@ -36,7 +37,7 @@ http://www.thingiverse.com/thing:3575 and http://www.thingiverse.com/thing:3752
     PotentiometerExpand=4;      // number of  teeth
     IndentedDiameter=7;      // part #1
     DXFexport=0;                    // for part #0
-    PartNumber = -1;                     // export[0-13], preview [-1]
+    PartNumber = -6;                     // export[0-13], preview [-1]
 
 // ----------------- Small size---------------------------------
     
@@ -74,7 +75,7 @@ if(TransferRatio ==3){echo ("Transfer ratio: 243");}
 if(TransferRatio ==4){echo ("Transfer ratio: 1024");}
 echo ("Azimuth potentiometer to antenna transfer ratio ", (SmallNumberOfTeeth*TransferRatio)/(SmallNumberOfTeeth+PotentiometerExpand), "x" );
 echo ("Antenna mount screw radius: ", (PitchRadius1-IndentedDiameter-AntMountScrewDiameter), "mm X,Y distance: ", pow( 2*pow((PitchRadius1-IndentedDiameter-AntMountScrewDiameter), 2), 1/2), "mm" );
-echo ("All input variables: ", RotatorMountingPointsDiameter, "|", AntMountScrewDiameter, "|", AntMountScrewHead, "|", FlangeScrewDiameter, "|", ScrewHoleTolerance, "|", AntWheelHeight, "|", InAxisDiameter, "|", MotorAxisDiameter, "|", SmallNumberOfTeeth, "|", VerticalSpacing, "|", PlainBearingHeight, "|", PotentiometerAxisDiameter, "|", PotentiometerMountAxisDiameter, "|", PotentiometerExpand, "|", IndentedDiameter, "|", RotatorMountingPointsPitch, "|", TransferRatio, "|", FirstHeight, "|", CircularPitch, "|", BoxThickness, "|" );
+echo ("All input variables: ", RotatorMountingPointsDiameter, "|", AntMountScrewDiameter, "|", AntMountScrewHead, "|", FlangeScrewDiameter, "|", ScrewHoleTolerance, "|", AntWheelHeight, "|", InAxisDiameter, "|", MotorAxisDiameter, "|", MotorShaftFlattening, "|", SmallNumberOfTeeth, "|", VerticalSpacing, "|", PlainBearingHeight, "|", PotentiometerAxisDiameter, "|", PotentiometerMountAxisDiameter, "|", PotentiometerExpand, "|", IndentedDiameter, "|", RotatorMountingPointsPitch, "|", TransferRatio, "|", FirstHeight, "|", CircularPitch, "|", BoxThickness, "|" );
 echo ("BOM =================================");
 echo ("4x steel axis, Diameter: ", InAxisDiameter, "mm Length: ", (FirstHeight-VerticalSpacing+FirstHeight/TransferRatio*1.5+FirstHeight/TransferRatio+2*FirstHeight/TransferRatio/2+4*VerticalSpacing+PlainBearingHeight+2*BoxThickness+4*BoxThickness), "mm" );
 echo ("4x steel Ant mount srew, Diameter: ", AntMountScrewDiameter, "mm Length: >", (FirstHeight+VerticalSpacing+2+AntWheelHeight+20), "mm, in radius: ", (PitchRadius1-5-AntMountScrewDiameter), "mm" );
@@ -433,6 +434,8 @@ if(PartNumber ==6){
             }
         }
     }
+    translate([PitchRadius1+PitchRadius2-(MotorAxisDiameter+1)/2, MotorAxisDiameter/2-MotorShaftFlattening, -FirstHeight-VerticalSpacing-FirstHeight/TransferRatio*1.5-FirstHeight/TransferRatio-2*FirstHeight/TransferRatio/2-4*VerticalSpacing+(FirstHeight/TransferRatio*0.75)])
+    cube([MotorAxisDiameter+1,MotorAxisDiameter/2, FirstHeight/TransferRatio+2*BoxThickness]);
 }
 if(PartNumber <0){
     translate([PitchRadius1+PitchRadius2,0,-FirstHeight-VerticalSpacing-FirstHeight/TransferRatio*1.5-FirstHeight/TransferRatio-2*FirstHeight/TransferRatio/2-4*VerticalSpacing+(FirstHeight/TransferRatio*0.75)]) rotate([180,0,180/SmallNumberOfTeeth])
