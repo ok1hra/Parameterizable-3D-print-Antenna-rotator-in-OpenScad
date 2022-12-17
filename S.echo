@@ -4,14 +4,13 @@ ECHO: "MAX lasered steel cover size (part #0)", 116, "x", 240.8, "mm, Thickness:
 ECHO: "Transfer ratio: 243"
 ECHO: "Azimuth potentiometer to antenna transfer ratio ", 2.25, "x"
 ECHO: "Antenna mount screw radius: ", 8, "mm X,Y distance: ", 11.3137, "mm"
-ECHO: "All input variables: ", 10.2, "|", 8, "|", 13.2, "|", 4, "|", 0.2, "|", 20, "|", 8.4, "|", 6, "|", 12, "|", 3, "|", 2.1, "|", 6.34, "|", 10.5, "|", 4, "|", 7, "|", 200, "|", 3, "|", 15, "|", 230, "|", 3, "|"
+ECHO: "All input variables: ", 10.2, "|", 8, "|", 13.2, "|", 4, "|", 0.2, "|", 20, "|", 8, "|", 5.1, "|", 0.5, "|", 12, "|", 3, "|", 2.1, "|", 6.34, "|", 10.5, "|", 4, "|", 7, "|", 200, "|", 3, "|", 15, "|", 230, "|", 3, "|"
 ECHO: "BOM ================================="
-ECHO: "4x steel axis, Diameter: ", 8.4, "mm Length: ", 61.6, "mm"
+ECHO: "4x steel axis, Diameter: ", 8, "mm Length: ", 61.6, "mm"
+ECHO: "Drill for precise machining of the hole for internal axes ", 8.1, "mm"
 ECHO: "4x steel Ant mount srew, Diameter: ", 8, "mm Length: >", 60, "mm, in radius: ", 10, "mm"
 ECHO: "35x steel flange srew, Diameter: ", 4, "mm Length: >", 9, "mm"
 ECHO: "5x nuts for srew, Diameter: ", 4, "mm"
 ECHO: "4x M3 x ", 9, "mm"
-ECHO: "7x steel spacer for inner axis with diameter ", 8.4, "/<", 7.66667, "mm, and Thickness: ", 2, "mm"
+ECHO: "7x steel spacer for inner axis with diameter ", 8, "/<", 7.66667, "mm, and Thickness: ", 2, "mm"
 ECHO: "====================================="
-DEPRECATED: The assign() module will be removed in future releases. Use a regular assignment instead. in file parametric-3d-rotator.scad, line 1303
-DEPRECATED: The assign() module will be removed in future releases. Use a regular assignment instead. in file parametric-3d-rotator.scad, line 1307

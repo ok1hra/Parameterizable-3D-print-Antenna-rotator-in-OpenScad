@@ -26,7 +26,7 @@ http://www.thingiverse.com/thing:3575 and http://www.thingiverse.com/thing:3752
     FlangeScrewDiameter=4;
     ScrewHoleTolerance=0.2;
     AntWheelHeight=20;
-    InAxisDiameter = 8.4;
+    InAxisDiameter = 8.0;
     MotorAxisDiameter=5.1;
     MotorShaftFlattening=0.5;
     SmallNumberOfTeeth = 12;
@@ -37,8 +37,9 @@ http://www.thingiverse.com/thing:3575 and http://www.thingiverse.com/thing:3752
     PotentiometerExpand=4;      // number of  teeth
     IndentedDiameter=7;      // part #1
     DXFexport=0;                    // for part #0
-    PartNumber = -6;                     // export[0-13], preview [-1]
-
+    EndstopRotate=165;       // do not change
+    PartNumber = -10;                     // export[0-13], preview [-1]
+    
 // ----------------- Small size---------------------------------
     
 //    RotatorMountingPointsPitch=200;
@@ -78,6 +79,7 @@ echo ("Antenna mount screw radius: ", (PitchRadius1-IndentedDiameter-AntMountScr
 echo ("All input variables: ", RotatorMountingPointsDiameter, "|", AntMountScrewDiameter, "|", AntMountScrewHead, "|", FlangeScrewDiameter, "|", ScrewHoleTolerance, "|", AntWheelHeight, "|", InAxisDiameter, "|", MotorAxisDiameter, "|", MotorShaftFlattening, "|", SmallNumberOfTeeth, "|", VerticalSpacing, "|", PlainBearingHeight, "|", PotentiometerAxisDiameter, "|", PotentiometerMountAxisDiameter, "|", PotentiometerExpand, "|", IndentedDiameter, "|", RotatorMountingPointsPitch, "|", TransferRatio, "|", FirstHeight, "|", CircularPitch, "|", BoxThickness, "|" );
 echo ("BOM =================================");
 echo ("4x steel axis, Diameter: ", InAxisDiameter, "mm Length: ", (FirstHeight-VerticalSpacing+FirstHeight/TransferRatio*1.5+FirstHeight/TransferRatio+2*FirstHeight/TransferRatio/2+4*VerticalSpacing+PlainBearingHeight+2*BoxThickness+4*BoxThickness), "mm" );
+echo ("Drill for precise machining of the hole for internal axes ", InAxisDiameter+0.1, "mm" );
 echo ("4x steel Ant mount srew, Diameter: ", AntMountScrewDiameter, "mm Length: >", (FirstHeight+VerticalSpacing+2+AntWheelHeight+20), "mm, in radius: ", (PitchRadius1-5-AntMountScrewDiameter), "mm" );
 echo ("35x steel flange srew, Diameter: ", FlangeScrewDiameter, "mm Length: >", (3*BoxThickness), "mm" );
 echo ("5x nuts for srew, Diameter: ", FlangeScrewDiameter, "mm" );
@@ -129,8 +131,8 @@ if(PartNumber ==0||PartNumber <=-0){
             }
             if(CircularPitch>390 ){
                 // endstop
-                rotate([0,0,180]) translate([33,-5-PitchRadius1-PitchRadius2+InAxisDiameter,-0.2]) cylinder(h=BoxThickness+0.2, d=3.2, center=false, $fn=30);
-                rotate([0,0,180]) translate([33-22.2,-5-10.3-PitchRadius1-PitchRadius2+InAxisDiameter,-0.2]) cylinder(h=BoxThickness+0.2, d=3.2, center=false, $fn=30);
+                rotate([0,0,EndstopRotate]) translate([33,-5-PitchRadius1-PitchRadius2+InAxisDiameter,-0.2]) cylinder(h=BoxThickness+0.2, d=3.2, center=false, $fn=30);
+                rotate([0,0,EndstopRotate]) translate([33-22.2,-5-10.3-PitchRadius1-PitchRadius2+InAxisDiameter,-0.2]) cylinder(h=BoxThickness+0.2, d=3.2, center=false, $fn=30);
             }
         }
     }else{
@@ -166,8 +168,8 @@ if(PartNumber ==0||PartNumber <=-0){
             }
             if(CircularPitch>390 ){
                 // endstop
-                rotate([0,0,180]) translate([33,-5-PitchRadius1-PitchRadius2+InAxisDiameter,-0.2]) cylinder(h=BoxThickness+0.2, d=3.2, center=false, $fn=30);
-                rotate([0,0,180]) translate([33-22.2,-5-10.3-PitchRadius1-PitchRadius2+InAxisDiameter,-0.2]) cylinder(h=BoxThickness+0.2, d=3.2, center=false, $fn=30);
+                rotate([0,0,EndstopRotate]) translate([33,-5-PitchRadius1-PitchRadius2+InAxisDiameter,-0.2]) cylinder(h=BoxThickness+0.2, d=3.2, center=false, $fn=30);
+                rotate([0,0,EndstopRotate]) translate([33-22.2,-5-10.3-PitchRadius1-PitchRadius2+InAxisDiameter,-0.2]) cylinder(h=BoxThickness+0.2, d=3.2, center=false, $fn=30);
             }
         }
     }
@@ -177,7 +179,7 @@ if(PartNumber ==0||PartNumber <=-0){
 if(PartNumber ==1||PartNumber <0){
     // endstop
     if(PartNumber <0&&CircularPitch>390 ){
-%        rotate([0,0,180]) translate([33,-5-PitchRadius1-PitchRadius2+InAxisDiameter,-5.2])
+%        rotate([0,0,EndstopRotate]) translate([33,-5-PitchRadius1-PitchRadius2+InAxisDiameter,-5.2])
         import("V_166_1A006.stl", convexity=3);
     }
     difference(){
@@ -263,7 +265,7 @@ if(PartNumber ==2||PartNumber <0){
                         number_of_teeth=SmallNumberOfTeeth*TransferRatio,
                         circular_pitch=CircularPitch,
                         gear_thickness = FirstHeight/TransferRatio*1.5,
-                        rim_thickness = FirstHeight/TransferRatio*1.5,
+                        rim_thickness = FirstHeight/TransferRatio*1.5-0.5,
                         rim_width = PitchRadius2/10,
                         hub_thickness = FirstHeight/TransferRatio*1.5+VerticalSpacing,
                         hub_diameter=PitchRadius2*2.5,
@@ -305,7 +307,7 @@ if(PartNumber ==3||PartNumber <0){
                 number_of_teeth=SmallNumberOfTeeth*TransferRatio,
                 circular_pitch=CircularPitch,
                 gear_thickness = FirstHeight/TransferRatio,
-                rim_thickness = FirstHeight/TransferRatio,
+                rim_thickness = FirstHeight/TransferRatio-0.5,
                 rim_width = PitchRadius2/10,
                 hub_thickness = FirstHeight/TransferRatio+VerticalSpacing,
                 hub_diameter=PitchRadius2*2.5,
@@ -346,7 +348,7 @@ if(PartNumber ==4||PartNumber <0){
                 number_of_teeth=SmallNumberOfTeeth*TransferRatio,
                 circular_pitch=CircularPitch,
                 gear_thickness = FirstHeight/TransferRatio/2,
-                rim_thickness = FirstHeight/TransferRatio/2,
+                rim_thickness = FirstHeight/TransferRatio/2-0.5,
                 rim_width = PitchRadius2/10,
                 hub_thickness = FirstHeight/TransferRatio/2+VerticalSpacing,
                 hub_diameter=PitchRadius2*2.5,
@@ -653,10 +655,14 @@ if(PartNumber ==10||PartNumber <-0){
                 translate([0,0,BoxThickness-0.1]) cylinder(h=0.5*InAxisDiameter, d1=(PitchRadius1+PitchRadius2)*2+0.5*InAxisDiameter, d2=(PitchRadius1+PitchRadius2)*2, center=false, $fn=180);
                 translate([0,0,BoxThickness-0.1]) cylinder(h=0.5*InAxisDiameter+0.1, d1=(PitchRadius1+PitchRadius2)*2-0.5*InAxisDiameter, d2=(PitchRadius1+PitchRadius2)*2, center=false, $fn=180);
             }
+            if( CircularPitch>390 ){
+                rotate([0,0,-120+30]) translate([PitchRadius1+PitchRadius3,0,BoxThickness-0.1]) cylinder(h=BoxThickness*1.25, d=(FlangeScrewDiameter+ScrewHoleTolerance)*1.76, center=false, $fn=30);
+                rotate([0,0,-120-30]) translate([PitchRadius1+PitchRadius3,0,BoxThickness-0.1]) cylinder(h=BoxThickness*1.25, d=(FlangeScrewDiameter+ScrewHoleTolerance)*1.76, center=false, $fn=30);
+            }
             if(CircularPitch>390 ){
                 // endstop
-                rotate([0,0,180]) translate([33,-5-PitchRadius1-PitchRadius2+InAxisDiameter,BoxThickness-0.1]) cylinder(h=4, d=6.5, center=false, $fn=30);
-                rotate([0,0,180]) translate([33-22.2,-5-10.3-PitchRadius1-PitchRadius2+InAxisDiameter, BoxThickness-0.1]) cylinder(h=4, d=6.5, center=false, $fn=30);
+                rotate([0,0,EndstopRotate]) translate([33,-5-PitchRadius1-PitchRadius2+InAxisDiameter,BoxThickness-0.1]) cylinder(h=4, d=6.5, center=false, $fn=30);
+                rotate([0,0,EndstopRotate]) translate([33-22.2,-5-10.3-PitchRadius1-PitchRadius2+InAxisDiameter, BoxThickness-0.1]) cylinder(h=4, d=6.5, center=false, $fn=30);
 
             }
        }
