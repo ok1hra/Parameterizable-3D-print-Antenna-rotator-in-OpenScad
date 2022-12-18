@@ -20,49 +20,51 @@ http://www.thingiverse.com/thing:3575 and http://www.thingiverse.com/thing:3752
  - menu File/Export/ExportDXF
 ----------------- Input parameter ---------------------------------*/
 
-    RotatorMountingPointsDiameter=10.2;
-    AntMountScrewDiameter=8;
-    AntMountScrewHead=13.2;
-    FlangeScrewDiameter=4;
-    ScrewHoleTolerance=0.2;
-    AntWheelHeight=20;
-    InAxisDiameter = 8.0;
-    MotorAxisDiameter=5.1;
-    MotorShaftFlattening=0.5;
-    SmallNumberOfTeeth = 12;
-    VerticalSpacing=3;
-    PlainBearingHeight=2.1;     // < VerticalSpacing
-    PotentiometerAxisDiameter=6.34;
-    PotentiometerMountAxisDiameter=10.5;
-    PotentiometerExpand=4;      // number of  teeth
-    IndentedDiameter=7;      // part #1
-    DXFexport=0;                    // for part #0
-    EndstopRotate=165;       // do not change
-    PartNumber = -10;                     // export[0-13], preview [-1]
+    RotatorMountingPointsDiameter=10.2;     // it must be sufficiently robust
+    AntMountScrewDiameter=8;      // it must be sufficiently robust  (>6)
+    AntMountScrewRadius=0;           // 0 for auto, if greater than zero, the value is used (18.5 first version dimension)
+    AntMountScrewHead=13.2;         // measure the screw used (M8 13.2, M6 10.2)
+    FlangeScrewDiameter=4;            // 4 optimal size
+    ScrewHoleTolerance=0.2;           // it creates clearance and compensates for the inaccuracy of the 3d printer
+    AntWheelHeight=20;                    // bigger than 15
+    InAxisDiameter = 8.0;                   // main internal axes
+    MotorAxisDiameter=5.1;              // according to the selected motor
+    MotorShaftFlattening=0.5;         // if need
+    SmallNumberOfTeeth = 12;        // smaller gear
+    VerticalSpacing=3;                         // between gears
+    PlainBearingHeight=2.1;             // smaller than VerticalSpacing
+    PotentiometerAxisDiameter=6.34;                 // according to the selected potentiometer
+    PotentiometerMountAxisDiameter=10.5;    // according to the selected potentiometer
+    PotentiometerExpand=4;          // number of  teeth
+    IndentedDiameter=7;                 // part #1
+    DXFexport=0;                                // for part #0
+    EndstopRotate=165;                  // do not change
+    CircularPitchLimitUnderWhichDisableEndstopAndPotetniometer=390;     // I recommend not to change, because not space in small design
+    PartNumber = -7;                     // export parts [0-13], preview all [negative value]
     
 // ----------------- Small size---------------------------------
     
-//    RotatorMountingPointsPitch=200;
+//    RotatorMountingPointsPitch=200;     // check that it exceeds the dimension of part number seven
 //    TransferRatio = 3;                          // full transfer ratio for 3 = 243 | for 4 = 1024
-//    FirstHeight = 15;
+//    FirstHeight = 15;                           // gear height number one is used to calculate the height of the others gear
 //    CircularPitch=230;
-//    BoxThickness=3;
+//    BoxThickness=3;                           // wall thickness of part number seven
 
 // ----------------- Medium size---------------------------------
 
-    RotatorMountingPointsPitch=260;
+    RotatorMountingPointsPitch=260;     // check that it exceeds the dimension of part number seven
     TransferRatio = 3;                          // full transfer ratio for 3 = 243 | for 4 = 1024
-    FirstHeight = 40;
+    FirstHeight = 40;                           // gear height number one is used to calculate the height of the others gear
     CircularPitch=400;
-    BoxThickness=4;
+    BoxThickness=4;                           // wall thickness of part number seven
 
 // ----------------- Big size---------------------------------
 
-//    RotatorMountingPointsPitch=260+20;
+//    RotatorMountingPointsPitch=260+20;     // check that it exceeds the dimension of part number seven
 //    TransferRatio = 3;                          // full transfer ratio for 3 = 243 | for 4 = 1024
-//    FirstHeight = 50;
+//    FirstHeight = 50;                           // gear height number one is used to calculate the height of the others gear
 //    CircularPitch=500;
-//    BoxThickness=5;
+//    BoxThickness=5;                           // wall thickness of part number seven
 
 //================================================
 
@@ -75,7 +77,11 @@ echo("MAX lasered steel cover size (part #0)", (sin(30)*(PitchRadius1+PitchRadiu
 if(TransferRatio ==3){echo ("Transfer ratio: 243");}
 if(TransferRatio ==4){echo ("Transfer ratio: 1024");}
 echo ("Azimuth potentiometer to antenna transfer ratio ", (SmallNumberOfTeeth*TransferRatio)/(SmallNumberOfTeeth+PotentiometerExpand), "x" );
-echo ("Antenna mount screw radius: ", (PitchRadius1-IndentedDiameter-AntMountScrewDiameter), "mm X,Y distance: ", pow( 2*pow((PitchRadius1-IndentedDiameter-AntMountScrewDiameter), 2), 1/2), "mm" );
+if(AntMountScrewRadius>0){
+    echo ("Antenna mount screw radius: ", AntMountScrewRadius, "mm X,Y distance: ", pow( 2*pow(AntMountScrewRadius, 2), 1/2), "mm" );
+}else{
+    echo ("Antenna mount screw radius: ", (PitchRadius1-IndentedDiameter-AntMountScrewDiameter), "mm X,Y distance: ", pow( 2*pow((PitchRadius1-IndentedDiameter-AntMountScrewDiameter), 2), 1/2), "mm" );
+}
 echo ("All input variables: ", RotatorMountingPointsDiameter, "|", AntMountScrewDiameter, "|", AntMountScrewHead, "|", FlangeScrewDiameter, "|", ScrewHoleTolerance, "|", AntWheelHeight, "|", InAxisDiameter, "|", MotorAxisDiameter, "|", MotorShaftFlattening, "|", SmallNumberOfTeeth, "|", VerticalSpacing, "|", PlainBearingHeight, "|", PotentiometerAxisDiameter, "|", PotentiometerMountAxisDiameter, "|", PotentiometerExpand, "|", IndentedDiameter, "|", RotatorMountingPointsPitch, "|", TransferRatio, "|", FirstHeight, "|", CircularPitch, "|", BoxThickness, "|" );
 echo ("BOM =================================");
 echo ("4x steel axis, Diameter: ", InAxisDiameter, "mm Length: ", (FirstHeight-VerticalSpacing+FirstHeight/TransferRatio*1.5+FirstHeight/TransferRatio+2*FirstHeight/TransferRatio/2+4*VerticalSpacing+PlainBearingHeight+2*BoxThickness+4*BoxThickness), "mm" );
@@ -85,7 +91,7 @@ echo ("35x steel flange srew, Diameter: ", FlangeScrewDiameter, "mm Length: >", 
 echo ("5x nuts for srew, Diameter: ", FlangeScrewDiameter, "mm" );
 echo ("4x M3 x ", (3*BoxThickness), "mm" );
 echo ("7x steel spacer for inner axis with diameter ", InAxisDiameter, "/<",PitchRadius2 ,"mm, and Thickness: ", PlainBearingHeight-0.1, "mm"  );
-if( CircularPitch>390 ){
+if( CircularPitch>CircularPitchLimitUnderWhichDisableEndstopAndPotetniometer ){
     echo ("Azimuth potentiometer: https://www.tme.eu/cz/details/3547s-1aa-102a/potenciometry-viceotackove-dratove/bourns/");
     echo ("Homing endstop (if use stepper motor Nema 17): https://www.tme.eu/cz/details/d3v-166-1a5/mikrospinace-snap-action/omron-ocb/");
 }
@@ -125,11 +131,11 @@ if(PartNumber ==0||PartNumber <=-0){
            }
             translate([0,RotatorMountingPointsPitch/2,-0.2]) cylinder(h=BoxThickness+0.2,d=RotatorMountingPointsDiameter, center=false, $fn=60);
             translate([0,-RotatorMountingPointsPitch/2,-0.2]) cylinder(h=BoxThickness+0.2,d=RotatorMountingPointsDiameter, center=false, $fn=60);
-            if( CircularPitch>390 ){
+            if( CircularPitch>CircularPitchLimitUnderWhichDisableEndstopAndPotetniometer ){
                 rotate([0,0,-120+30]) translate([PitchRadius1+PitchRadius3,0,-0.2]) cylinder(h=BoxThickness+0.2, d=FlangeScrewDiameter+ScrewHoleTolerance, center=false, $fn=30);
                 rotate([0,0,-120-30]) translate([PitchRadius1+PitchRadius3,0,-0.2]) cylinder(h=BoxThickness+0.2, d=FlangeScrewDiameter+ScrewHoleTolerance, center=false, $fn=30);
             }
-            if(CircularPitch>390 ){
+            if(CircularPitch>CircularPitchLimitUnderWhichDisableEndstopAndPotetniometer ){
                 // endstop
                 rotate([0,0,EndstopRotate]) translate([33,-5-PitchRadius1-PitchRadius2+InAxisDiameter,-0.2]) cylinder(h=BoxThickness+0.2, d=3.2, center=false, $fn=30);
                 rotate([0,0,EndstopRotate]) translate([33-22.2,-5-10.3-PitchRadius1-PitchRadius2+InAxisDiameter,-0.2]) cylinder(h=BoxThickness+0.2, d=3.2, center=false, $fn=30);
@@ -162,11 +168,11 @@ if(PartNumber ==0||PartNumber <=-0){
            }
             translate([0,RotatorMountingPointsPitch/2,-0.2]) cylinder(h=BoxThickness+0.2,d=RotatorMountingPointsDiameter, center=false, $fn=60);
             translate([0,-RotatorMountingPointsPitch/2,-0.2]) cylinder(h=BoxThickness+0.2,d=RotatorMountingPointsDiameter, center=false, $fn=60);
-            if( CircularPitch>390 ){
+            if( CircularPitch>CircularPitchLimitUnderWhichDisableEndstopAndPotetniometer ){
                 rotate([0,0,-120+30]) translate([PitchRadius1+PitchRadius3,0,-0.2]) cylinder(h=BoxThickness+0.2, d=FlangeScrewDiameter+ScrewHoleTolerance, center=false, $fn=30);
                 rotate([0,0,-120-30]) translate([PitchRadius1+PitchRadius3,0,-0.2]) cylinder(h=BoxThickness+0.2, d=FlangeScrewDiameter+ScrewHoleTolerance, center=false, $fn=30);
             }
-            if(CircularPitch>390 ){
+            if(CircularPitch>CircularPitchLimitUnderWhichDisableEndstopAndPotetniometer ){
                 // endstop
                 rotate([0,0,EndstopRotate]) translate([33,-5-PitchRadius1-PitchRadius2+InAxisDiameter,-0.2]) cylinder(h=BoxThickness+0.2, d=3.2, center=false, $fn=30);
                 rotate([0,0,EndstopRotate]) translate([33-22.2,-5-10.3-PitchRadius1-PitchRadius2+InAxisDiameter,-0.2]) cylinder(h=BoxThickness+0.2, d=3.2, center=false, $fn=30);
@@ -178,7 +184,7 @@ if(PartNumber ==0||PartNumber <=-0){
 // 1
 if(PartNumber ==1||PartNumber <0){
     // endstop
-    if(PartNumber <0&&CircularPitch>390 ){
+    if(PartNumber <0&&CircularPitch>CircularPitchLimitUnderWhichDisableEndstopAndPotetniometer ){
 %        rotate([0,0,EndstopRotate]) translate([33,-5-PitchRadius1-PitchRadius2+InAxisDiameter,-5.2])
         import("V_166_1A006.stl", convexity=3);
     }
@@ -189,7 +195,7 @@ if(PartNumber ==1||PartNumber <0){
            rotate([0,0,0]) translate([-PitchRadius1-PitchRadius2+InAxisDiameter+PitchRadius1/2+1,0,-8.5]) rotate([180,0,0]) scale([1,1,1])
             cylinder(h=2, d1=PitchRadius1, d2=PitchRadius1*0.915, center=false, $fn=180);
             translate([0,0,-FirstHeight-VerticalSpacing])
-            if(CircularPitch>390){
+            if(CircularPitch>CircularPitchLimitUnderWhichDisableEndstopAndPotetniometer){
                 gear (
                     number_of_teeth=SmallNumberOfTeeth*TransferRatio,
                     circular_pitch=CircularPitch,
@@ -220,9 +226,16 @@ if(PartNumber ==1||PartNumber <0){
        // -screw
        for (a =[0:90:350]){
             rotate([0,0,a]) union(){
-                translate([PitchRadius1-IndentedDiameter-AntMountScrewDiameter,0,-FirstHeight-VerticalSpacing-1]) {
-                    cylinder(h=FirstHeight+VerticalSpacing+2+AntWheelHeight, d=AntMountScrewDiameter, center=false, $fn=60);
-                    rotate([0,0,30]) cylinder(h=8, d=AntMountScrewHead/sin(60), $fn=6, center=false);
+                if(AntMountScrewRadius>0){
+                    translate([AntMountScrewRadius,0,-FirstHeight-VerticalSpacing-1]) {
+                        cylinder(h=FirstHeight+VerticalSpacing+2+AntWheelHeight, d=AntMountScrewDiameter, center=false, $fn=60);
+                        rotate([0,0,30]) cylinder(h=8, d=AntMountScrewHead/sin(60), $fn=6, center=false);
+                    }                                
+                }else{
+                    translate([PitchRadius1-IndentedDiameter-AntMountScrewDiameter,0,-FirstHeight-VerticalSpacing-1]) {
+                        cylinder(h=FirstHeight+VerticalSpacing+2+AntWheelHeight, d=AntMountScrewDiameter, center=false, $fn=60);
+                        rotate([0,0,30]) cylinder(h=8, d=AntMountScrewHead/sin(60), $fn=6, center=false);
+                    }                
                 }
             }
         }
@@ -237,7 +250,7 @@ if(PartNumber ==2||PartNumber <0){
             difference(){
                 union(){
                     translate([-PitchRadius1-PitchRadius2,0,-FirstHeight-VerticalSpacing]) rotate([0,0,180/SmallNumberOfTeeth])
-                    if(CircularPitch>390){
+                    if(CircularPitch>CircularPitchLimitUnderWhichDisableEndstopAndPotetniometer){
                         gear (
                             number_of_teeth=SmallNumberOfTeeth,
                             circular_pitch=CircularPitch,
@@ -495,7 +508,12 @@ if(PartNumber ==7||PartNumber <-0){
                 cylinder(h=FirstHeight-VerticalSpacing+FirstHeight/TransferRatio*1.5+FirstHeight/TransferRatio+2*FirstHeight/TransferRatio/2+4*VerticalSpacing+PlainBearingHeight+2*BoxThickness+4*BoxThickness, d=InAxisDiameter+ScrewHoleTolerance, center=false, $fn=60);
             }
        }
-        // - motor axis hole
+        // hole for water out
+        for (a =[0:120:350]){
+            rotate([0,0,a]) translate([-PitchRadius1*1.7-PitchRadius2,0,-FirstHeight-VerticalSpacing-FirstHeight/TransferRatio*1.5-FirstHeight/TransferRatio-2*FirstHeight/TransferRatio/2-4*VerticalSpacing-PlainBearingHeight-3*BoxThickness-0.1])
+            cylinder(h=3*BoxThickness+0.2, d1=4, d2=PitchRadius1/2, center=false, $fn=60);
+        }
+       // - motor axis hole
         translate([PitchRadius1+PitchRadius2,0,-FirstHeight-VerticalSpacing-FirstHeight/TransferRatio*1.5-FirstHeight/TransferRatio-2*FirstHeight/TransferRatio/2-4*VerticalSpacing-PlainBearingHeight-3*BoxThickness-0.1]){ 
             cylinder(h=3*BoxThickness+0.2, d1=MotorAxisDiameter*4, d2=MotorAxisDiameter*7, center=false, $fn=60);
             // nema 17 terminal
@@ -566,13 +584,9 @@ if(PartNumber <0){
 // 9
 OutsideDiaMult=2.5;
 
-if(CircularPitch>390){
-}else{
-}
-
 if(PartNumber ==9){
     difference(){
-            if(CircularPitch>390){
+            if(CircularPitch>CircularPitchLimitUnderWhichDisableEndstopAndPotetniometer){
                 cylinder(h=1.5*FirstHeight/TransferRatio/2, d=2.5*InAxisDiameter,center=false, $fn=60);
             }else{
                 cylinder(h=1.5*FirstHeight/TransferRatio/2, d=1.5*InAxisDiameter,center=false, $fn=60);
@@ -582,7 +596,7 @@ if(PartNumber ==9){
     }
     difference(){
                 translate([3*InAxisDiameter,0,0])
-            if(CircularPitch>390){
+            if(CircularPitch>CircularPitchLimitUnderWhichDisableEndstopAndPotetniometer){
                 cylinder(h=FirstHeight/TransferRatio+2*FirstHeight/TransferRatio/2+3*VerticalSpacing, d=2.5*InAxisDiameter,center=false, $fn=60);
             }else{
                 cylinder(h=FirstHeight/TransferRatio+2*FirstHeight/TransferRatio/2+3*VerticalSpacing, d=1.5*InAxisDiameter,center=false, $fn=60);
@@ -592,7 +606,7 @@ if(PartNumber ==9){
     }
     difference(){
                 translate([6*InAxisDiameter,0,0])
-            if(CircularPitch>390){
+            if(CircularPitch>CircularPitchLimitUnderWhichDisableEndstopAndPotetniometer){
                 cylinder(h=FirstHeight/TransferRatio+2*FirstHeight/TransferRatio/2+3*VerticalSpacing, d=2.5*InAxisDiameter,center=false, $fn=60);
             }else{
                 cylinder(h=FirstHeight/TransferRatio+2*FirstHeight/TransferRatio/2+3*VerticalSpacing, d=1.5*InAxisDiameter,center=false, $fn=60);
@@ -603,7 +617,7 @@ if(PartNumber ==9){
 }
 if(PartNumber <-0){
     difference(){
-        if(CircularPitch>390){
+        if(CircularPitch>CircularPitchLimitUnderWhichDisableEndstopAndPotetniometer){
             translate([-PitchRadius1-PitchRadius2,0,-FirstHeight-VerticalSpacing-FirstHeight/TransferRatio*1.5-FirstHeight/TransferRatio-FirstHeight/TransferRatio/2-3*VerticalSpacing-PlainBearingHeight]) rotate([180,0,0])
                 cylinder(h=1.5*FirstHeight/TransferRatio/2, d=2.5*InAxisDiameter,center=false, $fn=60);
         }else{
@@ -614,7 +628,7 @@ if(PartNumber <-0){
                 cylinder(h=1.5*FirstHeight/TransferRatio/2+2, d=InAxisDiameter,center=false, $fn=60);
     }
     rotate([0,0,120])difference(){
-        if(CircularPitch>390){
+        if(CircularPitch>CircularPitchLimitUnderWhichDisableEndstopAndPotetniometer){
             translate([-PitchRadius1-PitchRadius2,0,-FirstHeight-VerticalSpacing-FirstHeight/TransferRatio*1.5-VerticalSpacing-PlainBearingHeight]) rotate([180,0,0])
                 cylinder(h=FirstHeight/TransferRatio+2*FirstHeight/TransferRatio/2+3*VerticalSpacing, d=2.5*InAxisDiameter,center=false, $fn=60);
         }else{
@@ -655,11 +669,11 @@ if(PartNumber ==10||PartNumber <-0){
                 translate([0,0,BoxThickness-0.1]) cylinder(h=0.5*InAxisDiameter, d1=(PitchRadius1+PitchRadius2)*2+0.5*InAxisDiameter, d2=(PitchRadius1+PitchRadius2)*2, center=false, $fn=180);
                 translate([0,0,BoxThickness-0.1]) cylinder(h=0.5*InAxisDiameter+0.1, d1=(PitchRadius1+PitchRadius2)*2-0.5*InAxisDiameter, d2=(PitchRadius1+PitchRadius2)*2, center=false, $fn=180);
             }
-            if( CircularPitch>390 ){
+            if( CircularPitch>CircularPitchLimitUnderWhichDisableEndstopAndPotetniometer ){
                 rotate([0,0,-120+30]) translate([PitchRadius1+PitchRadius3,0,BoxThickness-0.1]) cylinder(h=BoxThickness*1.25, d=(FlangeScrewDiameter+ScrewHoleTolerance)*1.76, center=false, $fn=30);
                 rotate([0,0,-120-30]) translate([PitchRadius1+PitchRadius3,0,BoxThickness-0.1]) cylinder(h=BoxThickness*1.25, d=(FlangeScrewDiameter+ScrewHoleTolerance)*1.76, center=false, $fn=30);
             }
-            if(CircularPitch>390 ){
+            if(CircularPitch>CircularPitchLimitUnderWhichDisableEndstopAndPotetniometer ){
                 // endstop
                 rotate([0,0,EndstopRotate]) translate([33,-5-PitchRadius1-PitchRadius2+InAxisDiameter,BoxThickness-0.1]) cylinder(h=4, d=6.5, center=false, $fn=30);
                 rotate([0,0,EndstopRotate]) translate([33-22.2,-5-10.3-PitchRadius1-PitchRadius2+InAxisDiameter, BoxThickness-0.1]) cylinder(h=4, d=6.5, center=false, $fn=30);
@@ -669,7 +683,7 @@ if(PartNumber ==10||PartNumber <-0){
 }
 
 // 11
-if( (PartNumber ==11||PartNumber <0)&&CircularPitch>390 ){
+if( (PartNumber ==11||PartNumber <0)&&CircularPitch>CircularPitchLimitUnderWhichDisableEndstopAndPotetniometer ){
     difference(){
         rotate([0,0,-120]) 
         translate([PitchRadius1+PitchRadius3,0,-FirstHeight/TransferRatio/2-10.5]) rotate([0,0,180/(SmallNumberOfTeeth+PotentiometerExpand)])
@@ -695,7 +709,7 @@ if( (PartNumber ==11||PartNumber <0)&&CircularPitch>390 ){
 
 
 // 12
-if( (PartNumber ==12||PartNumber <0)&&CircularPitch>390 ){
+if( (PartNumber ==12||PartNumber <0)&&CircularPitch>CircularPitchLimitUnderWhichDisableEndstopAndPotetniometer ){
 PotentiometerMountHeight=10+8;
     difference(){
         union(){
@@ -730,17 +744,21 @@ if(PartNumber ==13){
                 // - 1/2
                 translate([200,0,-1]) rotate([0,0,180]) cube([400,200,200]);
             }
-            translate([0,0,BoxThickness-0.1]) cylinder(h=AntWheelHeight-BoxThickness+0.2, d1=(PitchRadius1+PitchRadius2)*2+3.5*InAxisDiameter, d2=(PitchRadius1+PitchRadius2)*2+2*InAxisDiameter, center=false, $fn=360);
-            
+            translate([0,0,BoxThickness-0.1]) cylinder(h=AntWheelHeight-BoxThickness+0.2, d1=(PitchRadius1+PitchRadius2)*2+3.5*InAxisDiameter, d2=(PitchRadius1+PitchRadius2)*2+2*InAxisDiameter, center=false, $fn=360);            
             for (a =[0:90:350]){
                 rotate([0,0,a]) union(){
-                    translate([PitchRadius1-5-AntMountScrewDiameter,0,-1]) {
-                        cylinder(h=FirstHeight+VerticalSpacing+2+AntWheelHeight, d=AntMountScrewDiameter, center=false, $fn=60);
+                    if(AntMountScrewRadius>0){
+                        translate([AntMountScrewRadius,0,BoxThickness+2]) {
+                            cylinder(h=AntWheelHeight-BoxThickness+2, d=AntMountScrewDiameter, center=false, $fn=60);
+                        }
+                    }else{
+                        translate([PitchRadius1-IndentedDiameter-AntMountScrewDiameter,0,BoxThickness+2]) {
+                        cylinder(h=AntWheelHeight-BoxThickness+2, d=AntMountScrewDiameter, center=false, $fn=60);
                     }
                 }
             }
-       }
-
+        }
+   }
 }
 if(PartNumber <-0){
 %        difference(){
@@ -750,15 +768,20 @@ if(PartNumber <-0){
                 translate([200,0,-1]) rotate([0,0,180]) cube([400,200,200]);
             }
             translate([0,0,BoxThickness-0.1]) cylinder(h=AntWheelHeight-BoxThickness+0.2, d1=(PitchRadius1+PitchRadius2)*2+3.5*InAxisDiameter, d2=(PitchRadius1+PitchRadius2)*2+2*InAxisDiameter, center=false, $fn=360);
-            
             for (a =[0:90:350]){
                 rotate([0,0,a]) union(){
-                    translate([PitchRadius1-5-AntMountScrewDiameter,0,-1]) {
-                        cylinder(h=FirstHeight+VerticalSpacing+2+AntWheelHeight, d=AntMountScrewDiameter, center=false, $fn=60);
+                    if(AntMountScrewRadius>0){
+                        translate([AntMountScrewRadius,0,BoxThickness+2]) {
+                            cylinder(h=AntWheelHeight-BoxThickness+2, d=AntMountScrewDiameter, center=false, $fn=60);
+                        }
+                    }else{
+                            translate([PitchRadius1-IndentedDiameter-AntMountScrewDiameter,0,BoxThickness+2]) {
+                            cylinder(h=AntWheelHeight-BoxThickness+2, d=AntMountScrewDiameter, center=false, $fn=60);
                     }
                 }
             }
-       }
+        }
+   }
 }
 
 
