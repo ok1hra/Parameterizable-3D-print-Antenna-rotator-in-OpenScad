@@ -21,12 +21,9 @@ http://www.thingiverse.com/thing:3575 and http://www.thingiverse.com/thing:3752
 ----------------- Input parameter ---------------------------------*/
 
     RotatorMountingPointsDiameter=10.2;     // it must be sufficiently robust
-    AntMountScrewDiameter=8;      // it must be sufficiently robust  (>6)
     AntMountScrewRadius=0;           // 0 for auto, if greater than zero, the value is used (18.5 first version dimension)
-    AntMountScrewHead=13.2;         // measure the screw used (M8 13.2, M6 10.2)
     FlangeScrewDiameter=4;            // 4 optimal size
     ScrewHoleTolerance=0.2;           // it creates clearance and compensates for the inaccuracy of the 3d printer
-    AntWheelHeight=20;                    // bigger than 15
     InAxisDiameter = 8.0;                   // main internal axes
     MotorAxisDiameter=5.1;              // according to the selected motor
     MotorShaftFlattening=0.5;         // if need
@@ -44,6 +41,9 @@ http://www.thingiverse.com/thing:3575 and http://www.thingiverse.com/thing:3752
     
 // ----------------- Small size---------------------------------
     
+//    AntMountScrewDiameter=6;      // it must be sufficiently robust  (>6)
+//    AntMountScrewHead=10.2;         // measure the screw used (M8 13.2, M6 10.2)
+//    AntWheelHeight=15;                    // bigger than 15
 //    RotatorMountingPointsPitch=200;     // check that it exceeds the dimension of part number seven
 //    TransferRatio = 3;                          // full transfer ratio for 3 = 243 | for 4 = 1024
 //    FirstHeight = 15;                           // gear height number one is used to calculate the height of the others gear
@@ -52,6 +52,9 @@ http://www.thingiverse.com/thing:3575 and http://www.thingiverse.com/thing:3752
 
 // ----------------- Medium size---------------------------------
 
+    AntMountScrewDiameter=8;      // it must be sufficiently robust  (>6)
+    AntMountScrewHead=13.2;         // measure the screw used (M8 13.2, M6 10.2)
+    AntWheelHeight=20;                    // bigger than 15
     RotatorMountingPointsPitch=260;     // check that it exceeds the dimension of part number seven
     TransferRatio = 3;                          // full transfer ratio for 3 = 243 | for 4 = 1024
     FirstHeight = 40;                           // gear height number one is used to calculate the height of the others gear
@@ -60,6 +63,9 @@ http://www.thingiverse.com/thing:3575 and http://www.thingiverse.com/thing:3752
 
 // ----------------- Big size---------------------------------
 
+//    AntMountScrewDiameter=8;      // it must be sufficiently robust  (>6)
+//    AntMountScrewHead=13.2;         // measure the screw used (M8 13.2, M6 10.2)
+//    AntWheelHeight=20;                    // bigger than 15
 //    RotatorMountingPointsPitch=260+20;     // check that it exceeds the dimension of part number seven
 //    TransferRatio = 3;                          // full transfer ratio for 3 = 243 | for 4 = 1024
 //    FirstHeight = 50;                           // gear height number one is used to calculate the height of the others gear
@@ -739,12 +745,12 @@ PotentiometerMountHeight=10+8;
 // 13
 if(PartNumber ==13){
         rotate([180,0,0]) difference(){
-            translate([0,0,BoxThickness+2]) cylinder(h=AntWheelHeight-BoxThickness+1, d1=(PitchRadius1+PitchRadius2)*2+3.5*InAxisDiameter+6, d2=(PitchRadius1+PitchRadius2)*2+2*InAxisDiameter+6, center=false, $fn=360);
+            translate([0,0,BoxThickness+2.01]) cylinder(h=AntWheelHeight-BoxThickness-2+BoxThickness*0.75, d1=(PitchRadius1+PitchRadius2)*2+3.5*InAxisDiameter+BoxThickness*1.5, d2=(PitchRadius1+PitchRadius2)*2+2*InAxisDiameter+BoxThickness, center=false, $fn=360);
             if(PartNumber <0){
                 // - 1/2
                 translate([200,0,-1]) rotate([0,0,180]) cube([400,200,200]);
             }
-            translate([0,0,BoxThickness-0.1]) cylinder(h=AntWheelHeight-BoxThickness+0.2, d1=(PitchRadius1+PitchRadius2)*2+3.5*InAxisDiameter, d2=(PitchRadius1+PitchRadius2)*2+2*InAxisDiameter, center=false, $fn=360);            
+            translate([0,0,BoxThickness+2]) cylinder(h=AntWheelHeight-BoxThickness-2, d1=(PitchRadius1+PitchRadius2)*2+3.5*InAxisDiameter, d2=(PitchRadius1+PitchRadius2)*2+2*InAxisDiameter, center=false, $fn=360);
             for (a =[0:90:350]){
                 rotate([0,0,a]) union(){
                     if(AntMountScrewRadius>0){
@@ -763,12 +769,12 @@ if(PartNumber ==13){
 }
 if(PartNumber <-0){
 %        difference(){
-            translate([0,0,BoxThickness+2]) cylinder(h=AntWheelHeight-BoxThickness+1, d1=(PitchRadius1+PitchRadius2)*2+3.5*InAxisDiameter+6, d2=(PitchRadius1+PitchRadius2)*2+2*InAxisDiameter+6, center=false, $fn=360);
+            translate([0,0,BoxThickness+2.01]) cylinder(h=AntWheelHeight-BoxThickness-2+BoxThickness*0.75, d1=(PitchRadius1+PitchRadius2)*2+3.5*InAxisDiameter+BoxThickness*1.5, d2=(PitchRadius1+PitchRadius2)*2+2*InAxisDiameter+BoxThickness, center=false, $fn=360);
             if(PartNumber <0){
                 // - 1/2
                 translate([200,0,-1]) rotate([0,0,180]) cube([400,200,200]);
             }
-            translate([0,0,BoxThickness-0.1]) cylinder(h=AntWheelHeight-BoxThickness+0.2, d1=(PitchRadius1+PitchRadius2)*2+3.5*InAxisDiameter, d2=(PitchRadius1+PitchRadius2)*2+2*InAxisDiameter, center=false, $fn=360);
+            translate([0,0,BoxThickness+2]) cylinder(h=AntWheelHeight-BoxThickness-2, d1=(PitchRadius1+PitchRadius2)*2+3.5*InAxisDiameter, d2=(PitchRadius1+PitchRadius2)*2+2*InAxisDiameter, center=false, $fn=360);
             for (a =[0:90:350]){
                 rotate([0,0,a]) union(){
                     if(AntMountScrewRadius>0){
