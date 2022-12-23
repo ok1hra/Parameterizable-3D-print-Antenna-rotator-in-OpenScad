@@ -40,7 +40,7 @@ http://www.thingiverse.com/thing:3575 and http://www.thingiverse.com/thing:3752
     DXFexport=0;                                // for part #0
     EndstopRotate=165;                  // do not change
     CircularPitchLimitUnderWhichDisableEndstopAndPotetniometer=390;     // I recommend not to change, because not space in small design
-    PartNumber = -7;                     // export parts [0-13], preview all [negative value]
+    PartNumber = -13;                     // export parts [0-13], preview all [negative value]
     
 // ----------------- Small size---------------------------------
     
@@ -758,6 +758,7 @@ if(PartNumber ==13){
                 }
             }
         }
+        translate([0,0,BoxThickness+2.5+AntWheelHeight-BoxThickness]) scale([1.5,1.5,1]) rq(1);
    }
 }
 if(PartNumber <-0){
@@ -781,6 +782,7 @@ if(PartNumber <-0){
                 }
             }
         }
+        translate([0,0,BoxThickness+2.5+AntWheelHeight-BoxThickness]) scale([1.5,1.5,1]) rq(1);
    }
 }
 
