@@ -4,7 +4,7 @@ ECHO: "MAX lasered steel cover size (part #0)", 192, "x", 300.8, "mm, Thickness:
 ECHO: "Transfer ratio: 243"
 ECHO: "Azimuth potentiometer to antenna transfer ratio ", 2.25, "x"
 ECHO: "Antenna mount screw radius: ", 25, "mm X,Y distance: ", 35.3553, "mm"
-ECHO: "All input variables: ", 10.2, "|", 8, "|", 13.2, "|", 4, "|", 0.2, "|", 20, "|", 8, "|", 5.1, "|", 0.5, "|", 12, "|", 3, "|", 2.1, "|", 6.34, "|", 10.5, "|", 4, "|", 7, "|", 260, "|", 3, "|", 40, "|", 400, "|", 4, "|"
+ECHO: "All input variables: ", 10.2, "|", 8, "|", 13.2, "|", 4, "|", 0.2, "|", 20, "|", 8, "|", 13, "|", 0, "|", 12, "|", 3, "|", 2.1, "|", 6.34, "|", 10.5, "|", 4, "|", 7, "|", 260, "|", 3, "|", 40, "|", 400, "|", 4, "|"
 ECHO: "BOM ================================="
 ECHO: "4x steel axis, Diameter: ", 8, "mm Length: ", 121.767, "mm"
 ECHO: "Drill for precise machining of the hole for internal axes ", 8.1, "mm"

@@ -25,8 +25,11 @@ http://www.thingiverse.com/thing:3575 and http://www.thingiverse.com/thing:3752
     FlangeScrewDiameter=4;            // 4 optimal size
     ScrewHoleTolerance=0.2;           // it creates clearance and compensates for the inaccuracy of the 3d printer
     InAxisDiameter = 8.0;                   // main internal axes
-    MotorAxisDiameter=5.1;              // according to the selected motor
-    MotorShaftFlattening=0.5;         // if need
+    MotorMountType  = 2;                  // [1-2] part #8
+    MotorMountZshift = 8;                // in mm, expand part #8 in Z
+    MotorAxisDiameter=13;              // according to the selected motor - part #6
+    MotorShaftFlattening=0;            // in mm, if need - part #6
+    MotorShaftScrew=3;                     // in mm, if need - part #6, 0 for disable
     SmallNumberOfTeeth = 12;        // smaller gear
     VerticalSpacing=3;                         // between gears
     PlainBearingHeight=2.1;             // smaller than VerticalSpacing
@@ -37,7 +40,7 @@ http://www.thingiverse.com/thing:3575 and http://www.thingiverse.com/thing:3752
     DXFexport=0;                                // for part #0
     EndstopRotate=165;                  // do not change
     CircularPitchLimitUnderWhichDisableEndstopAndPotetniometer=390;     // I recommend not to change, because not space in small design
-    PartNumber = -13;                     // export parts [0-13], preview all [negative value]
+    PartNumber = -7;                     // export parts [0-13], preview all [negative value]
     
 // ----------------- Small size---------------------------------
     
@@ -88,6 +91,7 @@ if(AntMountScrewRadius>0){
 }else{
     echo ("Antenna mount screw radius: ", (PitchRadius1-IndentedDiameter-AntMountScrewDiameter), "mm X,Y distance: ", pow( 2*pow((PitchRadius1-IndentedDiameter-AntMountScrewDiameter), 2), 1/2), "mm" );
 }
+if(PitchRadius2>14){ echo("Custom Motor terminal distance: ", CustomMotorTerminalDistance*2, "mm Diameter: ", PitchRadius2*2 );}
 echo ("All input variables: ", RotatorMountingPointsDiameter, "|", AntMountScrewDiameter, "|", AntMountScrewHead, "|", FlangeScrewDiameter, "|", ScrewHoleTolerance, "|", AntWheelHeight, "|", InAxisDiameter, "|", MotorAxisDiameter, "|", MotorShaftFlattening, "|", SmallNumberOfTeeth, "|", VerticalSpacing, "|", PlainBearingHeight, "|", PotentiometerAxisDiameter, "|", PotentiometerMountAxisDiameter, "|", PotentiometerExpand, "|", IndentedDiameter, "|", RotatorMountingPointsPitch, "|", TransferRatio, "|", FirstHeight, "|", CircularPitch, "|", BoxThickness, "|" );
 echo ("BOM =================================");
 echo ("4x steel axis, Diameter: ", InAxisDiameter, "mm Length: ", (FirstHeight-VerticalSpacing+FirstHeight/TransferRatio*1.5+FirstHeight/TransferRatio+2*FirstHeight/TransferRatio/2+4*VerticalSpacing+PlainBearingHeight+2*BoxThickness+4*BoxThickness), "mm" );
@@ -107,6 +111,7 @@ $fn=60;
 PitchRadius1  =  (SmallNumberOfTeeth* TransferRatio* CircularPitch / 180)/2;
 PitchRadius2  =  (SmallNumberOfTeeth* CircularPitch / 180)/2;
 PitchRadius3  =  ((SmallNumberOfTeeth+PotentiometerExpand)* CircularPitch / 180)/2;
+CustomMotorTerminalDistance=pow( 2*pow( (PitchRadius2*2), 2), 1/2)/2;
 
 // 0
 if(PartNumber ==0||PartNumber <=-0){
@@ -436,7 +441,7 @@ if(PartNumber ==6){
         gear (
             number_of_teeth=SmallNumberOfTeeth,
             circular_pitch=CircularPitch,
-            gear_thickness = FirstHeight/TransferRatio+2*BoxThickness,
+            gear_thickness = FirstHeight/TransferRatio+3*MotorShaftScrew,
             rim_thickness = FirstHeight/TransferRatio,
             rim_width = 0,
             hub_thickness = FirstHeight/TransferRatio/2,
@@ -454,22 +459,37 @@ if(PartNumber ==6){
                text(str("6"), halign="center", size=6);
             }
         }
+        if(MotorShaftScrew>0){
+            for (a =[0:120:360]){
+                translate([PitchRadius1+PitchRadius2,0,-FirstHeight-VerticalSpacing-FirstHeight/TransferRatio*1.5-FirstHeight/TransferRatio-2*FirstHeight/TransferRatio/2-4*VerticalSpacing+(FirstHeight/TransferRatio*0.75+FirstHeight/TransferRatio+MotorShaftScrew*1.5)]) 
+                rotate([0,0,a]) translate([0,-MotorAxisDiameter/2+0.5,0]) rotate([90,0,0])cylinder(h=PitchRadius2-MotorAxisDiameter/2, d1=MotorShaftScrew*0.9, d2=MotorShaftScrew+0.2, center=false, $fn=30);
+            }
+        }
     }
-    translate([PitchRadius1+PitchRadius2-(MotorAxisDiameter+1)/2, MotorAxisDiameter/2-MotorShaftFlattening, -FirstHeight-VerticalSpacing-FirstHeight/TransferRatio*1.5-FirstHeight/TransferRatio-2*FirstHeight/TransferRatio/2-4*VerticalSpacing+(FirstHeight/TransferRatio*0.75)])
-    cube([MotorAxisDiameter+1,MotorAxisDiameter/2, FirstHeight/TransferRatio+2*BoxThickness]);
+    translate([PitchRadius1+PitchRadius2+(MotorAxisDiameter+1)/2, MotorAxisDiameter/2, -FirstHeight-VerticalSpacing-FirstHeight/TransferRatio*1.5-FirstHeight/TransferRatio-2*FirstHeight/TransferRatio/2-4*VerticalSpacing+(FirstHeight/TransferRatio*0.75)])
+    rotate([0,0,180]) cube([MotorAxisDiameter+1,MotorShaftFlattening, FirstHeight/TransferRatio+2*BoxThickness]);
 }
 if(PartNumber <0){
-    translate([PitchRadius1+PitchRadius2,0,-FirstHeight-VerticalSpacing-FirstHeight/TransferRatio*1.5-FirstHeight/TransferRatio-2*FirstHeight/TransferRatio/2-4*VerticalSpacing+(FirstHeight/TransferRatio*0.75)]) rotate([180,0,180/SmallNumberOfTeeth])
-    gear (
-        number_of_teeth=SmallNumberOfTeeth,
-        circular_pitch=CircularPitch,
-        gear_thickness = FirstHeight/TransferRatio+2*BoxThickness,
-        rim_thickness = FirstHeight/TransferRatio,
-        rim_width = 0,
-        hub_thickness = FirstHeight/TransferRatio/2,
-        hub_diameter=PitchRadius2*2,
-        bore_diameter=MotorAxisDiameter,
-        circles=0);
+    difference(){
+        translate([PitchRadius1+PitchRadius2,0,-FirstHeight-VerticalSpacing-FirstHeight/TransferRatio*1.5-FirstHeight/TransferRatio-2*FirstHeight/TransferRatio/2-4*VerticalSpacing+(FirstHeight/TransferRatio*0.75)]) rotate([180,0,180/SmallNumberOfTeeth])
+        gear (
+            number_of_teeth=SmallNumberOfTeeth,
+            circular_pitch=CircularPitch,
+            gear_thickness = FirstHeight/TransferRatio+3*MotorShaftScrew,
+            rim_thickness = FirstHeight/TransferRatio,
+            rim_width = 0,
+            hub_thickness = FirstHeight/TransferRatio/2,
+            hub_diameter=PitchRadius2*2,
+            bore_diameter=MotorAxisDiameter,
+            circles=0);
+        if(MotorShaftScrew>0){
+            for (a =[0:120:360]){
+                translate([PitchRadius1+PitchRadius2,0,-FirstHeight-VerticalSpacing-FirstHeight/TransferRatio*1.5-FirstHeight/TransferRatio-2*FirstHeight/TransferRatio/2-4*VerticalSpacing+(FirstHeight/TransferRatio*0.75)-FirstHeight/TransferRatio-MotorShaftScrew*1.5]) 
+                rotate([0,0,a]) translate([0,-MotorAxisDiameter/2+0.5,0]) rotate([90,0,0])cylinder(h=PitchRadius2-MotorAxisDiameter/2, d1=MotorShaftScrew*0.9, d2=MotorShaftScrew+0.2, center=false, $fn=30);
+            }
+        }
+
+    }
 }
 
 // 7
@@ -485,11 +505,19 @@ if(PartNumber ==7||PartNumber <-0){
             translate([0,0,-FirstHeight-VerticalSpacing-FirstHeight/TransferRatio*1.5-FirstHeight/TransferRatio-2*FirstHeight/TransferRatio/2-4*VerticalSpacing-PlainBearingHeight-3*BoxThickness])
             BodySilhouette(2*BoxThickness, -2*BoxThickness, 2*BoxThickness, 180);
             // nema
-            translate([PitchRadius1+PitchRadius2+15.5,15.5,-FirstHeight-VerticalSpacing-FirstHeight/TransferRatio*1.5-FirstHeight/TransferRatio-2*FirstHeight/TransferRatio/2-4*VerticalSpacing-PlainBearingHeight-3*BoxThickness])
-                cylinder(h=FirstHeight+VerticalSpacing+FirstHeight/TransferRatio*1.5+FirstHeight/TransferRatio+2*FirstHeight/TransferRatio/2+4*VerticalSpacing+PlainBearingHeight+4, d=10, center=false, $fn=60);
-            translate([PitchRadius1+PitchRadius2+15.5,-15.5,-FirstHeight-VerticalSpacing-FirstHeight/TransferRatio*1.5-FirstHeight/TransferRatio-2*FirstHeight/TransferRatio/2-4*VerticalSpacing-PlainBearingHeight-3*BoxThickness])
-                cylinder(h=FirstHeight+VerticalSpacing+FirstHeight/TransferRatio*1.5+FirstHeight/TransferRatio+2*FirstHeight/TransferRatio/2+4*VerticalSpacing+PlainBearingHeight+4, d=10, center=false, $fn=60);
-
+            if(PitchRadius2>14){
+                // CUSTOM terminal
+                translate([PitchRadius1+PitchRadius2+CustomMotorTerminalDistance,CustomMotorTerminalDistance,-FirstHeight-VerticalSpacing-FirstHeight/TransferRatio*1.5-FirstHeight/TransferRatio-2*FirstHeight/TransferRatio/2-4*VerticalSpacing-PlainBearingHeight-3*BoxThickness])
+                    cylinder(h=FirstHeight+VerticalSpacing+FirstHeight/TransferRatio*1.5+FirstHeight/TransferRatio+2*FirstHeight/TransferRatio/2+4*VerticalSpacing+PlainBearingHeight+4, d=10, center=false, $fn=60);
+                translate([PitchRadius1+PitchRadius2+CustomMotorTerminalDistance,-CustomMotorTerminalDistance,-FirstHeight-VerticalSpacing-FirstHeight/TransferRatio*1.5-FirstHeight/TransferRatio-2*FirstHeight/TransferRatio/2-4*VerticalSpacing-PlainBearingHeight-3*BoxThickness])
+                    cylinder(h=FirstHeight+VerticalSpacing+FirstHeight/TransferRatio*1.5+FirstHeight/TransferRatio+2*FirstHeight/TransferRatio/2+4*VerticalSpacing+PlainBearingHeight+4, d=10, center=false, $fn=60);
+            }else{
+                // nema 17 terminal
+                translate([PitchRadius1+PitchRadius2+15.5,15.5,-FirstHeight-VerticalSpacing-FirstHeight/TransferRatio*1.5-FirstHeight/TransferRatio-2*FirstHeight/TransferRatio/2-4*VerticalSpacing-PlainBearingHeight-3*BoxThickness])
+                    cylinder(h=FirstHeight+VerticalSpacing+FirstHeight/TransferRatio*1.5+FirstHeight/TransferRatio+2*FirstHeight/TransferRatio/2+4*VerticalSpacing+PlainBearingHeight+4, d=10, center=false, $fn=60);
+                translate([PitchRadius1+PitchRadius2+15.5,-15.5,-FirstHeight-VerticalSpacing-FirstHeight/TransferRatio*1.5-FirstHeight/TransferRatio-2*FirstHeight/TransferRatio/2-4*VerticalSpacing-PlainBearingHeight-3*BoxThickness])
+                    cylinder(h=FirstHeight+VerticalSpacing+FirstHeight/TransferRatio*1.5+FirstHeight/TransferRatio+2*FirstHeight/TransferRatio/2+4*VerticalSpacing+PlainBearingHeight+4, d=10, center=false, $fn=60);
+            }
         }
         if(PartNumber <0){
             // - 1/2
@@ -521,18 +549,36 @@ if(PartNumber ==7||PartNumber <-0){
         }
        // - motor axis hole
         translate([PitchRadius1+PitchRadius2,0,-FirstHeight-VerticalSpacing-FirstHeight/TransferRatio*1.5-FirstHeight/TransferRatio-2*FirstHeight/TransferRatio/2-4*VerticalSpacing-PlainBearingHeight-3*BoxThickness-0.1]){ 
-            cylinder(h=3*BoxThickness+0.2, d1=MotorAxisDiameter*4, d2=MotorAxisDiameter*7, center=false, $fn=60);
-            // nema 17 terminal
-            translate([15.5,15.5,0]) cylinder(h=3*BoxThickness+0.2, d1=3.2, d2=2.8, center=false, $fn=30);
-            translate([-15.5,15.5,0]) cylinder(h=3*BoxThickness+0.2, d1=3.2, d2=2.8, center=false, $fn=30);
-            translate([15.5,-15.5,0]) cylinder(h=3*BoxThickness+0.2, d1=3.2, d2=2.8, center=false, $fn=30);
-            translate([-15.5,-15.5,0]) cylinder(h=3*BoxThickness+0.2, d1=3.2, d2=2.8, center=false, $fn=30);
+            cylinder(h=3*BoxThickness+0.2, d1=PitchRadius2*3, d2=PitchRadius2*3, center=false, $fn=60);
+            if(PitchRadius2>14){
+                // CUSTOM terminal
+                translate([CustomMotorTerminalDistance,CustomMotorTerminalDistance,0]) cylinder(h=3*BoxThickness+0.2, d1=3.2, d2=2.8, center=false, $fn=30);
+                translate([-CustomMotorTerminalDistance,CustomMotorTerminalDistance,0]) cylinder(h=3*BoxThickness+0.2, d1=3.2, d2=2.8, center=false, $fn=30);
+                translate([CustomMotorTerminalDistance,-CustomMotorTerminalDistance,0]) cylinder(h=3*BoxThickness+0.2, d1=3.2, d2=2.8, center=false, $fn=30);
+                translate([-CustomMotorTerminalDistance,-CustomMotorTerminalDistance,0]) cylinder(h=3*BoxThickness+0.2, d1=3.2, d2=2.8, center=false, $fn=30);
+            }else{
+                // nema 17 terminal            
+                translate([15.5,15.5,0]) cylinder(h=3*BoxThickness+0.2, d1=3.2, d2=2.8, center=false, $fn=30);
+                translate([-15.5,15.5,0]) cylinder(h=3*BoxThickness+0.2, d1=3.2, d2=2.8, center=false, $fn=30);
+                translate([15.5,-15.5,0]) cylinder(h=3*BoxThickness+0.2, d1=3.2, d2=2.8, center=false, $fn=30);
+                translate([-15.5,-15.5,0]) cylinder(h=3*BoxThickness+0.2, d1=3.2, d2=2.8, center=false, $fn=30);
+            }
+
         }
         translate([PitchRadius1+PitchRadius2,0,-FirstHeight-VerticalSpacing-FirstHeight/TransferRatio*1.5-FirstHeight/TransferRatio-2*FirstHeight/TransferRatio/2-4*VerticalSpacing-PlainBearingHeight-3]){
-            translate([15.5,15.5,0]) cylinder(h=FirstHeight+VerticalSpacing+FirstHeight/TransferRatio*1.5+FirstHeight/TransferRatio+2*FirstHeight/TransferRatio/2+4*VerticalSpacing+PlainBearingHeight+4, d=6, center=false, $fn=30);
-            translate([-15.5,15.5,0]) cylinder(h=4, d=6, center=false, $fn=30);
-            translate([15.5,-15.5,0]) cylinder(h=FirstHeight+VerticalSpacing+FirstHeight/TransferRatio*1.5+FirstHeight/TransferRatio+2*FirstHeight/TransferRatio/2+4*VerticalSpacing+PlainBearingHeight+4, d=6, center=false, $fn=30);
-            translate([-15.5,-15.5,0]) cylinder(h=4, d=6, center=false, $fn=30);
+            if(PitchRadius2>14){
+                // CUSTOM terminal            
+                translate([CustomMotorTerminalDistance,CustomMotorTerminalDistance,0]) cylinder(h=FirstHeight+VerticalSpacing+FirstHeight/TransferRatio*1.5+FirstHeight/TransferRatio+2*FirstHeight/TransferRatio/2+4*VerticalSpacing+PlainBearingHeight+4, d=6, center=false, $fn=30);
+                translate([-CustomMotorTerminalDistance,CustomMotorTerminalDistance,0]) cylinder(h=4, d=6, center=false, $fn=30);
+                translate([CustomMotorTerminalDistance,-CustomMotorTerminalDistance,0]) cylinder(h=FirstHeight+VerticalSpacing+FirstHeight/TransferRatio*1.5+FirstHeight/TransferRatio+2*FirstHeight/TransferRatio/2+4*VerticalSpacing+PlainBearingHeight+4, d=6, center=false, $fn=30);
+                translate([-CustomMotorTerminalDistance,-CustomMotorTerminalDistance,0]) cylinder(h=4, d=6, center=false, $fn=30);
+            }else{
+                // nema 17 terminal            
+                translate([15.5,15.5,0]) cylinder(h=FirstHeight+VerticalSpacing+FirstHeight/TransferRatio*1.5+FirstHeight/TransferRatio+2*FirstHeight/TransferRatio/2+4*VerticalSpacing+PlainBearingHeight+4, d=6, center=false, $fn=30);
+                translate([-15.5,15.5,0]) cylinder(h=4, d=6, center=false, $fn=30);
+                translate([15.5,-15.5,0]) cylinder(h=FirstHeight+VerticalSpacing+FirstHeight/TransferRatio*1.5+FirstHeight/TransferRatio+2*FirstHeight/TransferRatio/2+4*VerticalSpacing+PlainBearingHeight+4, d=6, center=false, $fn=30);
+                translate([-15.5,-15.5,0]) cylinder(h=4, d=6, center=false, $fn=30);
+            }
         }
 
         // - flange screw
@@ -579,12 +625,15 @@ if(PartNumber ==7||PartNumber <-0){
 
 // 8
 if(PartNumber ==8){
-    MotorMount();    
-    translate([0,-3,0]) mirror([0,1,0]) MotorMount();    
+    MotorMount(MotorMountType,MotorMountZshift);    
+    translate([0,-3,0]) mirror([0,1,0]) MotorMount(MotorMountType,MotorMountZshift);    
 }
 if(PartNumber <0){
-    translate([PitchRadius1+PitchRadius2,0,-FirstHeight-VerticalSpacing-FirstHeight/TransferRatio*1.5-FirstHeight/TransferRatio-2*FirstHeight/TransferRatio/2-4*VerticalSpacing-PlainBearingHeight-3*BoxThickness]) rotate([180,0,180])
-    MotorMount();    
+    translate([PitchRadius1+PitchRadius2,0,-FirstHeight-VerticalSpacing-FirstHeight/TransferRatio*1.5-FirstHeight/TransferRatio-2*FirstHeight/TransferRatio/2-4*VerticalSpacing-PlainBearingHeight-3*BoxThickness]) rotate([180,0,180]){
+        MotorMount(MotorMountType,MotorMountZshift);
+%        translate([0,0,MotorMountZshift]) rotate([180,0,0])cylinder(h=23, d=MotorAxisDiameter, center=false);
+//        #translate([0,0,MotorMountZshift]) rotate([180,0,0])cylinder(h=14.5, d=PitchRadius2*2, center=false);
+    }
 }
 
 // 9
@@ -792,6 +841,45 @@ if(PartNumber <-0){
    }
 }
 
+// 73
+if(PartNumber ==73){
+        difference(){
+            hull(){
+                translate([0,0,-0.1])
+//                BodySilhouette(BoxThickness, 8*BoxThickness, 8*BoxThickness, 360);
+                for (a =[0:120:350]){
+                    rotate([0,0,a]){
+//                        translate([-PitchRadius1-PitchRadius2,0,0]) cylinder(h=BoxThickness, d1=8*BoxThickness+(PitchRadius1+PitchRadius2)*2, d2=8*BoxThickness+(PitchRadius1+PitchRadius2)*2, center=false, $fn=360);
+                        translate([+PitchRadius1+PitchRadius2,0,0]) cylinder(h=BoxThickness, d1=8*BoxThickness+PitchRadius2*4, d2=8*BoxThickness+PitchRadius2*4, center=false, $fn=360);
+                    }
+                }
+            }
+            translate([0,0,BoxThickness-0.1]) FlangeScrew(BoxThickness+ScrewHoleTolerance, FlangeScrewDiameter+ScrewHoleTolerance, FlangeScrewDiameter+ScrewHoleTolerance);
+            translate([0,0,-0.2]) cylinder(h=BoxThickness+0.2, d=PitchRadius1*2-2*IndentedDiameter+0.4, center=false, $fn=360);
+            for (a =[0:120:350]){
+                rotate([0,0,a]){
+                    translate([-PitchRadius1-PitchRadius2,0,-0.2])
+                    cylinder(h=BoxThickness+0.2, d=InAxisDiameter+ScrewHoleTolerance, center=false, $fn=60);
+                }
+                rotate([0,0,a+60]){
+                    translate([-PitchRadius1-PitchRadius2,0,-0.2]) {
+                        cylinder(h=BoxThickness+0.2, d=FlangeScrewDiameter+ScrewHoleTolerance, center=false, $fn=60);
+                    }
+                }
+           }
+            if( CircularPitch>CircularPitchLimitUnderWhichDisableEndstopAndPotetniometer ){
+                rotate([0,0,-120+30]) translate([PitchRadius1+PitchRadius3,0,-0.2]) cylinder(h=BoxThickness+0.2, d=FlangeScrewDiameter+ScrewHoleTolerance, center=false, $fn=30);
+                rotate([0,0,-120-30]) translate([PitchRadius1+PitchRadius3,0,-0.2]) cylinder(h=BoxThickness+0.2, d=FlangeScrewDiameter+ScrewHoleTolerance, center=false, $fn=30);
+            }
+            if(CircularPitch>CircularPitchLimitUnderWhichDisableEndstopAndPotetniometer ){
+                // endstop
+                rotate([0,0,EndstopRotate]) translate([33,-5-PitchRadius1-PitchRadius2+InAxisDiameter,-0.2]) cylinder(h=BoxThickness+0.2, d=3.2, center=false, $fn=30);
+                rotate([0,0,EndstopRotate]) translate([33-22.2,-5-10.3-PitchRadius1-PitchRadius2+InAxisDiameter,-0.2]) cylinder(h=BoxThickness+0.2, d=3.2, center=false, $fn=30);
+            }
+        }
+}
+
+
 
 //---------------------------------------------------------------------------------------------------------------
 
@@ -817,57 +905,118 @@ module BodySilhouette(ZZ, D1EXPAND, D2EXPAND, FN){
     }
     cylinder(h=ZZ, d1=D1EXPAND+PitchRadius2*4, d2=D2EXPAND+PitchRadius2*4, center=false, $fn=FN);
 }
-    
-module MotorMount(){
-difference(){
+
+module MotorMount(TYPE, ZSHIFT){
+translate([0,0,MotorMountZshift]) difference(){
     union(){
         // vnejsi obal
-        translate([0,0,10]) cylinder(h=45, d=50, center=false, $fn=90);
-        translate([0,0,0]) cylinder(h=10.1, d2=50, d1=30, center=false, $fn=90);
+        translate([0,0,10-3]) cylinder(h=45+3, d=50, center=false, $fn=90);
+        translate([0,0,-MotorMountZshift]) cylinder(h=10.1-3+MotorMountZshift, d2=50, d1=30, center=false, $fn=90);
         // spodni priruba
-        hull(){
-            translate([15.5,15.5,0]) cylinder(h=3, d=11, center=false, $fn=30);
-            translate([15.5,-15.5,0]) cylinder(h=3, d=11, center=false, $fn=30);
-            translate([-15.5,15.5,0]) cylinder(h=3, d=11, center=false, $fn=30);
-            translate([-15.5,-15.5,0]) cylinder(h=3, d=11, center=false, $fn=30);
+        if(PitchRadius2>14){
+            // CUSTOM terminal            
+            hull(){
+                translate([CustomMotorTerminalDistance,CustomMotorTerminalDistance,-MotorMountZshift]) cylinder(h=3, d=11, center=false, $fn=30);
+                translate([CustomMotorTerminalDistance,-CustomMotorTerminalDistance,-MotorMountZshift]) cylinder(h=3, d=11, center=false, $fn=30);
+                translate([-CustomMotorTerminalDistance,CustomMotorTerminalDistance,-MotorMountZshift]) cylinder(h=3, d=11, center=false, $fn=30);
+                translate([-CustomMotorTerminalDistance,-CustomMotorTerminalDistance,-MotorMountZshift]) cylinder(h=3, d=11, center=false, $fn=30);
+            }
+        }else{
+            // nema 17 terminal
+            hull(){
+                translate([15.5,15.5,-MotorMountZshift]) cylinder(h=3, d=11, center=false, $fn=30);
+                translate([15.5,-15.5,-MotorMountZshift]) cylinder(h=3, d=11, center=false, $fn=30);
+                translate([-15.5,15.5,-MotorMountZshift]) cylinder(h=3, d=11, center=false, $fn=30);
+                translate([-15.5,-15.5,-MotorMountZshift]) cylinder(h=3, d=11, center=false, $fn=30);
+            }
         }
         // bocni priruba
-        translate([-31,0,0]) cube([62, 3, 55], center=false); 
+        translate([-31,0,-MotorMountZshift]) cube([62, 3, 55+MotorMountZshift], center=false); 
 
     }
     // -vnitrni tvar motoru
-    hull(){
-        translate([17,17,44]) cylinder(h=12, d=6, center=false, $fn=30);
-        translate([17,-17,44]) cylinder(h=12, d=6, center=false, $fn=30);
-        translate([-17,17,44]) cylinder(h=12, d=6, center=false, $fn=30);
-        translate([-17,-17,44]) cylinder(h=12, d=6, center=false, $fn=30);
+    if(TYPE==1){
+        hull(){
+            translate([17,17,44]) cylinder(h=12, d=6, center=false, $fn=30);
+            translate([17,-17,44]) cylinder(h=12, d=6, center=false, $fn=30);
+            translate([-17,17,44]) cylinder(h=12, d=6, center=false, $fn=30);
+            translate([-17,-17,44]) cylinder(h=12, d=6, center=false, $fn=30);
+        }
+        translate([0,0,55-1.5]) cube([15,52,3+0.1], center=true); 
+        translate([0,0,55-1.5-15]) cube([15,52,3+0.1], center=true);     
+        translate([0,0,10]) cylinder(h=45.1, d=44.5, center=false, $fn=90);
+        translate([0,0,-0.1+5]) cylinder(h=10.2-5,  d=28, center=false, $fn=90);
+        translate([0,0,-MotorMountZshift-0.1]) cylinder(h=5.2+MotorMountZshift, d2=28, d1=15, center=false, $fn=90);
     }
-    translate([0,0,55-1.5]) cube([15,52,3+0.1], center=true); 
-    translate([0,0,55-1.5-15]) cube([15,52,3+0.1], center=true);     
-    translate([0,0,10]) cylinder(h=45.1, d=44.5, center=false, $fn=90);
-    translate([0,0,-0.1+5]) cylinder(h=10.2-5,  d=28, center=false, $fn=90);
-    translate([0,0,-0.1]) cylinder(h=5.2, d2=28, d1=15, center=false, $fn=90);
-
+    if(TYPE==2){
+        hull(){
+            translate([18.5,18.5,30.5]) cylinder(h=14+1, d=6, center=false, $fn=30);
+            translate([18.5,-18.5,30.5]) cylinder(h=14+1, d=6, center=false, $fn=30);
+            translate([-18.5,18.5,30.5]) cylinder(h=14+1, d=6, center=false, $fn=30);
+            translate([-18.5,-18.5,30.5]) cylinder(h=14+1, d=6, center=false, $fn=30);
+        }
+        translate([0,0,43+7.5+1.5+1]) cube([16.5,52,3+2+0.1], center=true); 
+        translate([0,0,30.5-1.5]) cube([12,52,3+0.1], center=true);
+        translate([0,0,45.5-0.1]) cylinder(h=4, d1=43, d2=38, center=false, $fn=90);
+        translate([0,0,30.5]) cylinder(h=26.1+10, d=38, center=false, $fn=90);
+        translate([0,0,7.5+3]) cylinder(h=2, d1=40+4, d2=40, center=false, $fn=90);
+        for (a =[-70:140/5:70]){
+            rotate([0,0,a]) translate([0,25.1,9]) rotate([90,0,0]) cylinder(h=3.2, d1=3.2, d2=2.7, center=false, $fn=30);
+        }
+        translate([0,0,7.5]) cylinder(h=3.1, d=40+4, center=false, $fn=90);
+        translate([0,0,7.5]) cylinder(h=23.1, d=40, center=false, $fn=90);
+        translate([0,0,-0.1+5]) cylinder(h=2.7+0.2,  d=33, center=false, $fn=90);
+        translate([0,0,-MotorMountZshift-0.1]) cylinder(h=5.2+MotorMountZshift, d2=28, d1=28, center=false, $fn=90);
+    }
+    
     // -srouby spodni priruby
-    translate([15.5,15.5,-0.1]) cylinder(h=3.2, d1=3.2, d2=2.8, center=false, $fn=30);
-    translate([-15.5,15.5,-0.1]) cylinder(h=3.2, d1=3.2, d2=2.8, center=false, $fn=30);
-    translate([15.5,-15.5,-0.1]) cylinder(h=3.2, d1=3.2, d2=2.8, center=false, $fn=30);
-    translate([-15.5,-15.5,-0.1]) cylinder(h=3.2, d1=3.2, d2=2.8, center=false, $fn=30);
+    if(PitchRadius2>14){
+        // CUSTOM terminal            
+        translate([CustomMotorTerminalDistance,CustomMotorTerminalDistance,-MotorMountZshift-0.1]) cylinder(h=3.2, d1=3.2, d2=2.8, center=false, $fn=30);
+        difference(){
+            union(){
+                translate([CustomMotorTerminalDistance,CustomMotorTerminalDistance,3-MotorMountZshift]) cylinder(h=15, d1=11, d2=8, center=false, $fn=30);
+                translate([-CustomMotorTerminalDistance,CustomMotorTerminalDistance,3-MotorMountZshift]) cylinder(h=15, d1=11, d2=8, center=false, $fn=30);
+            }
+            translate([0,0,13-MotorMountZshift]) cylinder(h=5, d1=39.9, d2=50.1, center=false, $fn=90);
+
+        }
+        translate([-CustomMotorTerminalDistance,CustomMotorTerminalDistance,-MotorMountZshift-0.1]) cylinder(h=3.2, d1=3.2, d2=2.8, center=false, $fn=30);
+        translate([CustomMotorTerminalDistance,-CustomMotorTerminalDistance,-MotorMountZshift-0.1]) cylinder(h=3.2, d1=3.2, d2=2.8, center=false, $fn=30);
+        translate([-CustomMotorTerminalDistance,-CustomMotorTerminalDistance,-MotorMountZshift-0.1]) cylinder(h=3.2, d1=3.2, d2=2.8, center=false, $fn=30);
+
+    }else{
+        // nema 17 terminal
+        translate([15.5,15.5,-MotorMountZshift-0.1]) cylinder(h=3.2, d1=3.2, d2=2.8, center=false, $fn=30);
+        difference(){
+            union(){
+                translate([15.5,15.5,3-MotorMountZshift]) cylinder(h=15, d1=11, d2=8, center=false, $fn=30);
+                translate([-15.5,15.5,3-MotorMountZshift]) cylinder(h=15, d1=11, d2=8, center=false, $fn=30);
+            }
+            translate([0,0,13-MotorMountZshift]) cylinder(h=5, d1=39.9, d2=50.1, center=false, $fn=90);
+
+        }
+        translate([-15.5,15.5,-MotorMountZshift-0.1]) cylinder(h=3.2, d1=3.2, d2=2.8, center=false, $fn=30);
+        translate([15.5,-15.5,-MotorMountZshift-0.1]) cylinder(h=3.2, d1=3.2, d2=2.8, center=false, $fn=30);
+        translate([-15.5,-15.5,-MotorMountZshift-0.1]) cylinder(h=3.2, d1=3.2, d2=2.8, center=false, $fn=30);
+    }
+
     // -srouby bocni priruby
-    translate([-28,-0.1,45]) rotate([-90,0,0]) cylinder(h=3.2, d1=3.2, d2=2.8, center=false, $fn=30);
-    translate([-28,-0.1,25]) rotate([-90,0,0]) cylinder(h=3.2, d1=3.2, d2=2.8, center=false, $fn=30);
-    translate([-28,-0.1,5]) rotate([-90,0,0]) cylinder(h=3.2, d1=3.2, d2=2.8, center=false, $fn=30);
+    translate([-28,-0.1,45]) rotate([-90,0,0]) cylinder(h=3.2, d1=3.2, d2=2.7, center=false, $fn=30);
+    translate([-28,-0.1,25]) rotate([-90,0,0]) cylinder(h=3.2, d1=3.2, d2=2.7, center=false, $fn=30);
+    translate([-28,-0.1,5]) rotate([-90,0,0]) cylinder(h=3.2, d1=3.2, d2=2.7, center=false, $fn=30);
 
     translate([28,-0.1,45]) rotate([-90,0,0]) cylinder(h=3.2, d1=3.2, d2=3.2, center=false, $fn=30);
     translate([28,-0.1,25]) rotate([-90,0,0]) cylinder(h=3.2, d1=3.2, d2=3.2, center=false, $fn=30);
     translate([28,-0.1,5]) rotate([-90,0,0]) cylinder(h=3.2, d1=3.2, d2=3.2, center=false, $fn=30);
 
     // -1/2
-    translate([35,0,-1]) rotate([0,0,180]) cube([70, 35, 60], center=false); 
-
-
+    translate([35,0,-MotorMountZshift-1]) rotate([0,0,180]) cube([70, 35, 160], center=false); 
     }
 }    
+
+
+
     
 fudge = 0.1;
 module rq(h)
