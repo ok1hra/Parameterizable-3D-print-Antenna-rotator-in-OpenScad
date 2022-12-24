@@ -25,7 +25,7 @@ http://www.thingiverse.com/thing:3575 and http://www.thingiverse.com/thing:3752
     FlangeScrewDiameter=4;            // 4 optimal size
     ScrewHoleTolerance=0.2;           // it creates clearance and compensates for the inaccuracy of the 3d printer
     InAxisDiameter = 8.0;                   // main internal axes
-    MotorMountType  = 2;                  // [1-2] part #8
+    MotorMountType  = 2;                  // [1-2] part #8 , type 2 from PARKSIDE PBSA 12 D4
     MotorMountZshift = 8;                // in mm, expand part #8 in Z
     MotorAxisDiameter=13;              // according to the selected motor - part #6
     MotorShaftFlattening=0;            // in mm, if need - part #6
