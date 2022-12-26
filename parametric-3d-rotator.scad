@@ -344,10 +344,10 @@ if(PartNumber ==2||PartNumber <0){
                         bore_diameter=InAxisDiameter,
                         circles=6);
                 }
-                translate([-PitchRadiusBig-PitchRadiusSmall-(InAxisDiameter+1)/2, -0.5, -FirstHeight-VerticalSpacing-FirstHeight/TransferRatio*1.5-VerticalSpacing])
-                cube([InAxisDiameter+1,1,FirstHeight/TransferRatio*1.5+VerticalSpacing+FirstHeight+VerticalSpacing]);
-                translate([-PitchRadiusBig-PitchRadiusSmall-0.5, -(InAxisDiameter+1)/2, -FirstHeight-VerticalSpacing-FirstHeight/TransferRatio*1.5-VerticalSpacing])
-                cube([1,InAxisDiameter+1,FirstHeight/TransferRatio*1.5+VerticalSpacing+FirstHeight+VerticalSpacing]);
+//                translate([-PitchRadiusBig-PitchRadiusSmall-(InAxisDiameter+1)/2, -0.5, -FirstHeight-VerticalSpacing-FirstHeight/TransferRatio*1.5-VerticalSpacing])
+//                cube([InAxisDiameter+1,1,FirstHeight/TransferRatio*1.5+VerticalSpacing+FirstHeight+VerticalSpacing]);
+//                translate([-PitchRadiusBig-PitchRadiusSmall-0.5, -(InAxisDiameter+1)/2, -FirstHeight-VerticalSpacing-FirstHeight/TransferRatio*1.5-VerticalSpacing])
+//                cube([1,InAxisDiameter+1,FirstHeight/TransferRatio*1.5+VerticalSpacing+FirstHeight+VerticalSpacing]);
                 if(PartNumber >0){
                     // TXT
                     rotate([0,0,-5])translate([-PitchRadiusBig*1.85-PitchRadiusSmall,0,-FirstHeight-VerticalSpacing-VerticalSpacing-0.5])rotate([0,0,-90])
@@ -386,10 +386,10 @@ if(PartNumber ==3||PartNumber <0){
                 bore_diameter=InAxisDiameter,
                 circles=6);
         }
-        translate([-(InAxisDiameter+1)/2, -0.5, -FirstHeight-VerticalSpacing-FirstHeight/TransferRatio*1.5-FirstHeight/TransferRatio-2*VerticalSpacing])
-        cube([InAxisDiameter+1,1,FirstHeight/TransferRatio+VerticalSpacing+FirstHeight/TransferRatio*1.5+VerticalSpacing-PlainBearingHeight]);
-        translate([-0.5, -(InAxisDiameter+1)/2, -FirstHeight-VerticalSpacing-FirstHeight/TransferRatio*1.5-FirstHeight/TransferRatio-2*VerticalSpacing])
-        cube([1,InAxisDiameter+1,FirstHeight/TransferRatio+VerticalSpacing+FirstHeight/TransferRatio*1.5+VerticalSpacing-PlainBearingHeight]);
+//        translate([-(InAxisDiameter+1)/2, -0.5, -FirstHeight-VerticalSpacing-FirstHeight/TransferRatio*1.5-FirstHeight/TransferRatio-2*VerticalSpacing])
+//        cube([InAxisDiameter+1,1,FirstHeight/TransferRatio+VerticalSpacing+FirstHeight/TransferRatio*1.5+VerticalSpacing-PlainBearingHeight]);
+//        translate([-0.5, -(InAxisDiameter+1)/2, -FirstHeight-VerticalSpacing-FirstHeight/TransferRatio*1.5-FirstHeight/TransferRatio-2*VerticalSpacing])
+//        cube([1,InAxisDiameter+1,FirstHeight/TransferRatio+VerticalSpacing+FirstHeight/TransferRatio*1.5+VerticalSpacing-PlainBearingHeight]);
         if(PartNumber >0){
         // TXT
         rotate([0,0,-15])translate([-PitchRadiusBig*0.85,0,-FirstHeight-VerticalSpacing-FirstHeight/TransferRatio*1.5-2*VerticalSpacing-0.5])rotate([0,0,-90])
@@ -397,6 +397,8 @@ if(PartNumber ==3||PartNumber <0){
                text(str("3"), halign="center", size=7);
             }
         }
+        // assembled V cut
+        translate([-PitchRadiusSmall*0.7, 0, -FirstHeight-VerticalSpacing-VerticalSpacing-0.01]) rotate([0,0,+135]) cube([PitchRadiusSmall,PitchRadiusSmall,VerticalSpacing]);
     }
 }
 
@@ -404,7 +406,7 @@ if(PartNumber ==3||PartNumber <0){
 if(PartNumber ==4||PartNumber <0){
     difference(){
         union(){
-            translate([-PitchRadiusBig-PitchRadiusSmall,0,-FirstHeight-VerticalSpacing-FirstHeight/TransferRatio*1.5-FirstHeight/TransferRatio-2*VerticalSpacing]) rotate([0,0,180/SmallNumberOfTeeth])
+            translate([-PitchRadiusBig-PitchRadiusSmall,0,-FirstHeight-VerticalSpacing-FirstHeight/TransferRatio*1.5-FirstHeight/TransferRatio-2*VerticalSpacing])   rotate([0,0,180/SmallNumberOfTeeth])
             gear (
                 number_of_teeth=SmallNumberOfTeeth,
                 circular_pitch=CircularPitch,
@@ -427,10 +429,10 @@ if(PartNumber ==4||PartNumber <0){
                 bore_diameter=InAxisDiameter,
                 circles=6);
         }
-        translate([-PitchRadiusBig-PitchRadiusSmall-(InAxisDiameter+1)/2, -0.5, -FirstHeight-VerticalSpacing-FirstHeight/TransferRatio*1.5-FirstHeight/TransferRatio-FirstHeight/TransferRatio/2-3*VerticalSpacing])
-        cube([InAxisDiameter+1,1, FirstHeight/TransferRatio/2+VerticalSpacing+FirstHeight/TransferRatio+VerticalSpacing-PlainBearingHeight]);
-        translate([-PitchRadiusBig-PitchRadiusSmall-0.5, -(InAxisDiameter+1)/2, -FirstHeight-VerticalSpacing-FirstHeight/TransferRatio*1.5-FirstHeight/TransferRatio-FirstHeight/TransferRatio/2-3*VerticalSpacing])
-        cube([1,InAxisDiameter+1, FirstHeight/TransferRatio/2+VerticalSpacing+FirstHeight/TransferRatio+VerticalSpacing-PlainBearingHeight]);
+//        translate([-PitchRadiusBig-PitchRadiusSmall-(InAxisDiameter+1)/2, -0.5, -FirstHeight-VerticalSpacing-FirstHeight/TransferRatio*1.5-FirstHeight/TransferRatio-FirstHeight/TransferRatio/2-3*VerticalSpacing])
+//        cube([InAxisDiameter+1,1, FirstHeight/TransferRatio/2+VerticalSpacing+FirstHeight/TransferRatio+VerticalSpacing-PlainBearingHeight]);
+//        translate([-PitchRadiusBig-PitchRadiusSmall-0.5, -(InAxisDiameter+1)/2, -FirstHeight-VerticalSpacing-FirstHeight/TransferRatio*1.5-FirstHeight/TransferRatio-FirstHeight/TransferRatio/2-3*VerticalSpacing])
+//        cube([1,InAxisDiameter+1, FirstHeight/TransferRatio/2+VerticalSpacing+FirstHeight/TransferRatio+VerticalSpacing-PlainBearingHeight]);
         if(PartNumber >0){
         // TXT
         rotate([0,0,-6])translate([-PitchRadiusBig-PitchRadiusSmall-PitchRadiusBig*0.85,0, -FirstHeight-VerticalSpacing-FirstHeight/TransferRatio*1.5-FirstHeight/TransferRatio-3*VerticalSpacing-0.5])rotate([0,0,-90])
@@ -438,6 +440,9 @@ if(PartNumber ==4||PartNumber <0){
                text(str("4"), halign="center", size=7);
             }
         }
+        // assembled V cut
+        translate([-PitchRadiusBig-PitchRadiusSmall-PitchRadiusSmall*0.7, 0, -FirstHeight-VerticalSpacing-FirstHeight/TransferRatio*1.5-2*VerticalSpacing-0.01])
+        rotate([0,0,+135]) cube([PitchRadiusSmall,PitchRadiusSmall,VerticalSpacing]);
     }
 }
 
@@ -468,10 +473,10 @@ if(PartNumber ==5||PartNumber <0){
                 bore_diameter=InAxisDiameter,
                 circles=6);
         }
-        translate([-(InAxisDiameter+1)/2, -0.5, -FirstHeight-VerticalSpacing-FirstHeight/TransferRatio*1.5-FirstHeight/TransferRatio-2*FirstHeight/TransferRatio/2-4*VerticalSpacing])
-        cube([InAxisDiameter+1,1, FirstHeight/TransferRatio/2+VerticalSpacing+FirstHeight/TransferRatio/2+VerticalSpacing-PlainBearingHeight]);
-        translate([-0.5, -(InAxisDiameter+1)/2, -FirstHeight-VerticalSpacing-FirstHeight/TransferRatio*1.5-FirstHeight/TransferRatio-2*FirstHeight/TransferRatio/2-4*VerticalSpacing])
-        cube([1,InAxisDiameter+1, FirstHeight/TransferRatio/2+VerticalSpacing+FirstHeight/TransferRatio/2+VerticalSpacing-PlainBearingHeight]);
+//        translate([-(InAxisDiameter+1)/2, -0.5, -FirstHeight-VerticalSpacing-FirstHeight/TransferRatio*1.5-FirstHeight/TransferRatio-2*FirstHeight/TransferRatio/2-4*VerticalSpacing])
+//        cube([InAxisDiameter+1,1, FirstHeight/TransferRatio/2+VerticalSpacing+FirstHeight/TransferRatio/2+VerticalSpacing-PlainBearingHeight]);
+//        translate([-0.5, -(InAxisDiameter+1)/2, -FirstHeight-VerticalSpacing-FirstHeight/TransferRatio*1.5-FirstHeight/TransferRatio-2*FirstHeight/TransferRatio/2-4*VerticalSpacing])
+//        cube([1,InAxisDiameter+1, FirstHeight/TransferRatio/2+VerticalSpacing+FirstHeight/TransferRatio/2+VerticalSpacing-PlainBearingHeight]);
         if(PartNumber >0){
         // TXT
         rotate([0,0,-15])translate([-PitchRadiusBig*0.85,0,-FirstHeight-VerticalSpacing-FirstHeight/TransferRatio*1.5-FirstHeight/TransferRatio-FirstHeight/TransferRatio/2-4*VerticalSpacing-0.5])rotate([0,0,-90])
@@ -479,6 +484,9 @@ if(PartNumber ==5||PartNumber <0){
                text(str("5"), halign="center", size=7);
             }
         }
+        // assembled V cut
+        translate([-PitchRadiusSmall*0.7,0,-FirstHeight-VerticalSpacing-FirstHeight/TransferRatio*1.5-FirstHeight/TransferRatio-3*VerticalSpacing-0.01])
+        rotate([0,0,+135]) cube([PitchRadiusSmall,PitchRadiusSmall,VerticalSpacing]);
     }
 }
 
@@ -867,7 +875,7 @@ if(PartNumber ==13){
                     // - 1/2
                     translate([200,0,-1]) rotate([0,0,180]) cube([400,200,200]);
                 }
-                translate([0,0,BoxThickness+2]) cylinder(h=AntWheelHeight-BoxThickness-2, d1=(PitchRadiusBig+PitchRadiusSmall)*2+3.5*InAxisDiameter, d2=(PitchRadiusBig+PitchRadiusSmall)*2+2*InAxisDiameter, center=false, $fn=360);
+                translate([0,0,BoxThickness+1.99]) cylinder(h=AntWheelHeight-BoxThickness-2, d1=(PitchRadiusBig+PitchRadiusSmall)*2+3.5*InAxisDiameter, d2=(PitchRadiusBig+PitchRadiusSmall)*2+2*InAxisDiameter, center=false, $fn=360);
                 for (a =[0:90:350]){
                     rotate([0,0,a]) union(){
                         if(AntMountScrewRadius>0){
