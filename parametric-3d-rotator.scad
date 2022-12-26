@@ -42,7 +42,7 @@
     EndstopRotate                   = 165       ;// do not change
     CircularPitchLimitUnderWhichDisableEndstopAndPotetniometer = 390   ;// I recommend not to change, because not space in small design
     DXFexport                       =   0       ;// [0-1] off/on for part #0 and #13
-    PartNumber                      =  -7       ;// export parts [0-13], preview all [negative value]
+    PartNumber                      =   -7       ;// export parts [0-13], preview all [negative value]
     
 // ----------------- Small size---------------------------------
     
@@ -651,16 +651,20 @@ if(PartNumber ==7||PartNumber <-0){
         }
         // wire tunel
         rotate([0,0,240]) translate([PitchRadiusBig+PitchRadiusAZpot+PitchRadiusAZpot*BodySecondExpander-3,0,-FirstHeight-VerticalSpacing-FirstHeight/TransferRatio*1.5-FirstHeight/TransferRatio-2*FirstHeight/TransferRatio/2-4*VerticalSpacing-PlainBearingHeight-3*BoxThickness-0.1])
-            cylinder(h=6*BoxThickness+0.2, d=6, center=false, $fn=30);
+            scale([1,2,1]) cylinder(h=6*BoxThickness+0.2, d=6, center=false, $fn=30);
           rotate([0,0,120]) translate([PitchRadiusBig+PitchRadiusAZpot+PitchRadiusAZpot*BodySecondExpander-3,0,-FirstHeight-VerticalSpacing-FirstHeight/TransferRatio*1.5-FirstHeight/TransferRatio-2*FirstHeight/TransferRatio/2-4*VerticalSpacing-PlainBearingHeight-3*BoxThickness-0.1])
-            cylinder(h=6*BoxThickness+0.2, d=6, center=false, $fn=30);
+            scale([1,2,1]) cylinder(h=6*BoxThickness+0.2, d=6, center=false, $fn=30);
+//        // rail terminal
+//        translate([0,0,-FirstHeight-VerticalSpacing-FirstHeight/TransferRatio*1.5-FirstHeight/TransferRatio-2*FirstHeight/TransferRatio/2-4*VerticalSpacing-PlainBearingHeight-3*BoxThickness])
+//            rotate([0,0,140]) translate([InAxisDiameter*2,0,BoxThickness]) rotate([0,90,0]) cylinder(h=PitchRadiusBig+PitchRadiusAZpot+PitchRadiusAZpot*BodySecondExpander, d=BoxThickness*3, center=false, $fn=3);
+
     }
     // wire tunel
     difference(){
         rotate([0,0,240]) translate([PitchRadiusBig+PitchRadiusAZpot+PitchRadiusAZpot*BodySecondExpander-3,0,-FirstHeight-VerticalSpacing-FirstHeight/TransferRatio*1.5-FirstHeight/TransferRatio-2*FirstHeight/TransferRatio/2-4*VerticalSpacing-PlainBearingHeight])
         scale([1,2,1]) cylinder(h=(FirstHeight+VerticalSpacing+FirstHeight/TransferRatio*1.5+FirstHeight/TransferRatio+2*FirstHeight/TransferRatio/2+4*VerticalSpacing-PlainBearingHeight)-FirstHeight-VerticalSpacing, d=10, center=false, $fn=30);
         rotate([0,0,240]) translate([PitchRadiusBig+PitchRadiusAZpot+PitchRadiusAZpot*BodySecondExpander-3,0,-FirstHeight-VerticalSpacing-FirstHeight/TransferRatio*1.5-FirstHeight/TransferRatio-2*FirstHeight/TransferRatio/2-4*VerticalSpacing-PlainBearingHeight-1])
-        cylinder(h=(FirstHeight+VerticalSpacing+FirstHeight/TransferRatio*1.5+FirstHeight/TransferRatio+2*FirstHeight/TransferRatio/2+4*VerticalSpacing-PlainBearingHeight)-FirstHeight-VerticalSpacing+2, d=6, center=false, $fn=30);
+        scale([1,2,1]) cylinder(h=(FirstHeight+VerticalSpacing+FirstHeight/TransferRatio*1.5+FirstHeight/TransferRatio+2*FirstHeight/TransferRatio/2+4*VerticalSpacing-PlainBearingHeight)-FirstHeight-VerticalSpacing+2, d=6, center=false, $fn=30);
         if(PartNumber <0){
             // - 1/2
             translate([-200,0,1]) rotate([0,180,180]) cube([400,200,200]);
@@ -670,7 +674,7 @@ if(PartNumber ==7||PartNumber <-0){
         rotate([0,0,120]) translate([PitchRadiusBig+PitchRadiusAZpot+PitchRadiusAZpot*BodySecondExpander-3,0,-FirstHeight-VerticalSpacing-FirstHeight/TransferRatio*1.5-FirstHeight/TransferRatio-2*FirstHeight/TransferRatio/2-4*VerticalSpacing-PlainBearingHeight])
         scale([1,2,1]) cylinder(h=FirstHeight+VerticalSpacing+FirstHeight/TransferRatio*1.5+FirstHeight/TransferRatio+2*FirstHeight/TransferRatio/2+4*VerticalSpacing+PlainBearingHeight-10, d=10, center=false, $fn=30);
         rotate([0,0,120]) translate([PitchRadiusBig+PitchRadiusAZpot+PitchRadiusAZpot*BodySecondExpander-3,0,-FirstHeight-VerticalSpacing-FirstHeight/TransferRatio*1.5-FirstHeight/TransferRatio-2*FirstHeight/TransferRatio/2-4*VerticalSpacing-PlainBearingHeight-1])
-        cylinder(h=FirstHeight+VerticalSpacing+FirstHeight/TransferRatio*1.5+FirstHeight/TransferRatio+2*FirstHeight/TransferRatio/2+4*VerticalSpacing+PlainBearingHeight, d=6, center=false, $fn=30);
+        scale([1,2,1])cylinder(h=FirstHeight+VerticalSpacing+FirstHeight/TransferRatio*1.5+FirstHeight/TransferRatio+2*FirstHeight/TransferRatio/2+4*VerticalSpacing+PlainBearingHeight, d=6, center=false, $fn=30);
         if(PartNumber <0){
             // - 1/2
             translate([-200,0,1]) rotate([0,180,180]) cube([400,200,200]);
