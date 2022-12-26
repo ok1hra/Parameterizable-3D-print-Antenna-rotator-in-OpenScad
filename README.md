@@ -8,8 +8,10 @@
 - With Homing endstop, for uing with stepper motor (M,XL)
 
 ## Output files
+- Source [OpenScad file](parametric-3d-rotator.scad) for design customisation
+
 ### S size
-(compromise without endstop and azimuth potentiometer)
+(compromise design without endstop and azimuth potentiometer)
 - [BOM](S.echo)
 - Steel cover [.DXF](S.DXF)
 - Steel output terminal [.DXF](Sout.DXF)
