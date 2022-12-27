@@ -42,7 +42,7 @@
     EndstopRotate                   = 165       ;// do not change
     CircularPitchLimitUnderWhichDisableEndstopAndPotetniometer = 390   ;// I recommend not to change, because not space in small design
     DXFexport                       =   0       ;// [0-1] off/on for part #0 and #13
-    PartNumber                      =   -7       ;// export parts [0-13], preview all [negative value]
+    PartNumber                      =  -8       ;// export parts [0-13], preview all [negative value]
     
 // ----------------- Small size---------------------------------
     
@@ -988,7 +988,8 @@ module MotorMount(TYPE, ZSHIFT){
 translate([0,0,MotorMountZshift]) difference(){
     union(){
         // vnejsi obal
-        translate([0,0,10-3]) cylinder(h=48+65, d=50, center=false, $fn=90);
+        translate([0,0,120]) cylinder(h=20, d1=50, d2=10, center=false, $fn=90);
+        translate([0,0,7]) cylinder(h=48+65, d=50, center=false, $fn=90);
         translate([0,0,-MotorMountZshift]) cylinder(h=10.1-3+MotorMountZshift, d2=50, d1=30, center=false, $fn=90);
         // spodni priruba
         if(PitchRadiusSmall>14){
@@ -1043,7 +1044,8 @@ translate([0,0,MotorMountZshift]) difference(){
             translate([-18.5,18.5,30.5]) cylinder(h=14+1, d=6, center=false, $fn=30);
             translate([-18.5,-18.5,30.5]) cylinder(h=14+1, d=6, center=false, $fn=30);
         }
-        translate([0,0,30.5+26]) cylinder(h=65, d1=38, d2=50-4, center=false, $fn=90);
+        translate([0,0,120]) cylinder(h=20.2, d1=50-4, d2=10-4, center=false, $fn=90);
+        translate([0,0,30.5+26]) cylinder(h=63.51, d1=38, d2=50-4, center=false, $fn=90);
         translate([0,0,43+7.5+1.5+1]) cube([16.5,50-2,3+2+0.1], center=true); 
         translate([0,0,30.5-1.5]) cube([12,50-2,3+0.1], center=true);
         translate([0,0,45.5-0.1]) cylinder(h=4, d1=43, d2=38, center=false, $fn=90);
