@@ -42,7 +42,7 @@
     EndstopRotate                   = 165       ;// do not change
     CircularPitchLimitUnderWhichDisableEndstopAndPotetniometer = 390   ;// I recommend not to change, because not space in small design
     DXFexport                       =   0       ;// [0-1] off/on for part #0 and #13
-    PartNumber                      =  -8       ;// export parts [0-13], preview all [negative value]
+    PartNumber                      =   -7       ;// export parts [0-13], preview all [negative value]
     
 // ----------------- Small size---------------------------------
     
@@ -155,8 +155,8 @@ if(PartNumber ==0){
                 rotate([0,0,EndstopRotate]) translate([33,-5-PitchRadiusBig-PitchRadiusSmall+InAxisDiameter,-0.2]) cylinder(h=BoxThickness+0.2, d=3.2, center=false, $fn=30);
                 rotate([0,0,EndstopRotate]) translate([33-22.2,-5-10.3-PitchRadiusBig-PitchRadiusSmall+InAxisDiameter,-0.2]) cylinder(h=BoxThickness+0.2, d=3.2, center=false, $fn=30);
             }
-            rotate([0,0,-97]) translate([-PitchRadiusBig*1.15,0,-0.2]) scale([1,2,1]) cylinder(h=BoxThickness+0.2, d=10, center=false, $fn=60);
-            rotate([0,0,60]) translate([-PitchRadiusBig*1.1,0,-0.2]) scale([1,3,1]) cylinder(h=BoxThickness+0.2, d=10, center=false, $fn=60);
+//            rotate([0,0,-97]) translate([-PitchRadiusBig*1.15,0,-0.2]) scale([1,2,1]) cylinder(h=BoxThickness+0.2, d=10, center=false, $fn=60);
+//            rotate([0,0,60]) translate([-PitchRadiusBig*1.1,0,-0.2]) scale([1,3,1]) cylinder(h=BoxThickness+0.2, d=10, center=false, $fn=60);
         }
     }else{
         //        projection(cut=true)      // enable for .DXF export
@@ -199,7 +199,7 @@ if(PartNumber ==0){
         }
     }
 }
-if(PartNumber <=-0){
+if(PartNumber <0){
    %     difference(){
             hull(){
                 translate([0,0,-0.1]) BodySilhouette(BoxThickness, 8*BoxThickness, 8*BoxThickness, 360);
