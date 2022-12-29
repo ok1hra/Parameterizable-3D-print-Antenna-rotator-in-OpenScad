@@ -4,8 +4,9 @@ ECHO: "MAX lasered steel cover size (part #0)", 134.017, "x", 240.8, "mm, Thickn
 ECHO: "Transfer ratio: 243"
 ECHO: "Azimuth potentiometer to antenna transfer ratio ", 2, "x"
 ECHO: "Antenna mount screw radius: ", 10, "mm X,Y distance: ", 14.1421, "mm"
-ECHO: "All input variables: ", 10.2, "|", 0, "|", 4, "|", 0.2, "|", 8, "|", 2, "|", 8, "|", 13, "|", 0, "|", 3, "|", 12, "|", 3, "|", 2.1, "|", 6.34, "|", 10.5, "|", 6, "|", 1.25, "|", 1.4, "|", 7, "|", 165, "|", 390, "|", 0, "|", -1, "||", 6, "|", 10.2, "|", 15, "|", 200, "|", 3, "|", 15, "|", 230, "|", 3
+ECHO: "All input variables: ", 10.2, "|", 0, "|", 4, "|", 0.2, "|", 8, "|", 0, "|", 0, "|", 5, "|", 0.5, "|", 0, "|", 12, "|", 3, "|", 2.1, "|", 6.34, "|", 10.5, "|", 6, "|", 1.25, "|", 1.4, "|", 7, "|", 165, "|", 390, "|", 0, "|", -1, "||", 6, "|", 10.2, "|", 15, "|", 200, "|", 3, "|", 15, "|", 230, "|", 3
 ECHO: "BOM ================================="
+ECHO: "Motor type : stepper NEMA 17"
 ECHO: "Lasered steel cover with Thickness: ", 3, "mm by .DXF fie"
 ECHO: "Optional lasered steel output terminal with Thickness: ", 3, "mm by .DXF fie"
 ECHO: "4x steel axis, Diameter: ", 8, "mm Length: ", 61.6, "mm"

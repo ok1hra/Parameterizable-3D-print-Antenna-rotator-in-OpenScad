@@ -6,6 +6,7 @@ ECHO: "Azimuth potentiometer to antenna transfer ratio ", 2, "x"
 ECHO: "Antenna mount screw radius: ", 25, "mm X,Y distance: ", 35.3553, "mm"
 ECHO: "All input variables: ", 10.2, "|", 0, "|", 4, "|", 0.2, "|", 8, "|", 2, "|", 8, "|", 13, "|", 0, "|", 3, "|", 12, "|", 3, "|", 2.1, "|", 6.34, "|", 10.5, "|", 6, "|", 1.25, "|", 1.4, "|", 7, "|", 165, "|", 390, "|", 0, "|", -1, "||", 8, "|", 13.2, "|", 20, "|", 260, "|", 3, "|", 40, "|", 400, "|", 4
 ECHO: "BOM ================================="
+ECHO: "Motor type2: PARKSIDE PBSA 12 D4 (max 28 Nm, 350/1 300 RPM)"
 ECHO: "Lasered steel cover with Thickness: ", 4, "mm by .DXF fie"
 ECHO: "Optional lasered steel output terminal with Thickness: ", 4, "mm by .DXF fie"
 ECHO: "4x steel axis, Diameter: ", 8, "mm Length: ", 121.767, "mm"
