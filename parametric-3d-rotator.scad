@@ -42,7 +42,7 @@
     EndstopRotate                   = 165       ;// do not change
     CircularPitchLimitUnderWhichDisableEndstopAndPotetniometer = 390   ;// I recommend not to change, because not space in small design
     DXFexport                       =   0       ;// [0-1] off/on for part #0 and #13
-    PartNumber                      =   -6       ;// export parts [0-13], preview all [negative value]
+    PartNumber                      =   -8       ;// export parts [0-13], preview all [negative value]
     
 // ----------------- Small size---------------------------------
     
@@ -1013,7 +1013,8 @@ translate([0,0,MotorMountZshift]) difference(){
         if(PitchRadiusSmall>14){
             // CUSTOM terminal            
             hull(){
-                translate([-31,0,-MotorMountZshift]) cube([62, 3, 4], center=false); 
+                translate([-32,0,-MotorMountZshift]) cube([64, 3, 4], center=false); 
+                translate([-1.5,0,-MotorMountZshift]) cube([3, 25, 4], center=false); 
                 translate([CustomMotorTerminalDistance,CustomMotorTerminalDistance,-MotorMountZshift]) cylinder(h=3, d=11, center=false, $fn=30);
                 translate([CustomMotorTerminalDistance,-CustomMotorTerminalDistance,-MotorMountZshift]) cylinder(h=3, d=11, center=false, $fn=30);
                 translate([-CustomMotorTerminalDistance,CustomMotorTerminalDistance,-MotorMountZshift]) cylinder(h=3, d=11, center=false, $fn=30);
@@ -1022,7 +1023,8 @@ translate([0,0,MotorMountZshift]) difference(){
         }else{
             // nema 17 terminal
             hull(){
-                translate([-31,0,-MotorMountZshift]) cube([62, 3, 4], center=false); 
+                translate([-32,0,-MotorMountZshift]) cube([64, 3, 4], center=false); 
+                translate([-1.5,0,-MotorMountZshift]) cube([3, 25, 4], center=false); 
                 translate([15.5,15.5,-MotorMountZshift]) cylinder(h=4, d=11, center=false, $fn=30);
                 translate([15.5,-15.5,-MotorMountZshift]) cylinder(h=4, d=11, center=false, $fn=30);
                 translate([-15.5,15.5,-MotorMountZshift]) cylinder(h=4, d=11, center=false, $fn=30);
@@ -1030,10 +1032,13 @@ translate([0,0,MotorMountZshift]) difference(){
             }
         }
         // bocni priruba
-        translate([-31,0,-MotorMountZshift]) cube([62, 3, 55+65+MotorMountZshift], center=false); 
+        translate([-32,0,-MotorMountZshift]) cube([64, 3, 55+65+MotorMountZshift], center=false); 
+        translate([-1.5,0,-MotorMountZshift]) cube([3, 25, 7+MotorMountZshift], center=false); 
+
         if(TYPE==2){
             hull(){
                 translate([0,0,10]) cylinder(h=48, d=50, center=false, $fn=90);
+                translate([0,18.5,30.5-2-3]) cylinder(h=14+1+4+13, d=6+4+3.5+6, center=false, $fn=60);
                 translate([18.5,18.5,30.5-2]) cylinder(h=14+1+4, d=6+4, center=false, $fn=30);
                 translate([18.5,-18.5,30.5-2]) cylinder(h=14+1+4, d=6+4, center=false, $fn=30);
                 translate([-18.5,18.5,30.5-2]) cylinder(h=14+1+4, d=6+4, center=false, $fn=30);
