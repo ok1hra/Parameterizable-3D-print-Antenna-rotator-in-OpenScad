@@ -20,8 +20,7 @@
 - [S_out.3mf](S_out.3mf)
 
 ### M size (recomended)
-<img src="https://raw.githubusercontent.com/ok1hra/Parameterizable-3D-print-Antenna-rotator-in-OpenScad/main/M-01.jpg" height="150">
-<img src="https://raw.githubusercontent.com/ok1hra/Parameterizable-3D-print-Antenna-rotator-in-OpenScad/main/M-02.jpg" height="150">
+<img src="https://raw.githubusercontent.com/ok1hra/Parameterizable-3D-print-Antenna-rotator-in-OpenScad/main/M-01.jpg" height="150"><img src="https://raw.githubusercontent.com/ok1hra/Parameterizable-3D-print-Antenna-rotator-in-OpenScad/main/M-02.jpg" height="150">
 
 - Max torque **2200 kg/cm (215 N/m)**
 - [Torque video](https://www.youtube.com/watch?v=XpkWt55Bdf4)
