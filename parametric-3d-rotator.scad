@@ -41,8 +41,9 @@
     IndentedDiameter                =   7       ;// part #1
     EndstopRotate                   = 165       ;// do not change
     CircularPitchLimitUnderWhichDisableEndstopAndPotetniometer = 390   ;// I recommend not to change, because not space in small design
+    TorqueMountingPoints = 0        ;// [0] only for measure
     DXFexport                       =   0       ;// [0-1] off/on for part #0 and #13
-    PartNumber                      =   -8       ;// export parts [0-13], preview all [negative value]
+    PartNumber                      =   -7       ;// export parts [0-13], preview all [negative value]
     
 // ----------------- Small size---------------------------------
     
@@ -132,6 +133,10 @@ if(PartNumber ==0){
                 translate([0,0,-0.1]) BodySilhouette(BoxThickness, 8*BoxThickness, 8*BoxThickness, 360);
                 translate([0,RotatorMountingPointsPitch/2,-0.1]) cylinder(h=BoxThickness,d=RotatorMountingPointsDiameter*4, center=false, $fn=60);
                 translate([0,-RotatorMountingPointsPitch/2,-0.1]) cylinder(h=BoxThickness,d=RotatorMountingPointsDiameter*4, center=false, $fn=60);
+                if(TorqueMountingPoints==1){
+                    translate([PitchRadiusBig+PitchRadiusAZpot+PitchRadiusAZpot*BodySecondExpander+4*BoxThickness+40,100,-0.1]) cylinder(h=BoxThickness,d=60, center=false, $fn=60);
+                    translate([PitchRadiusBig+PitchRadiusAZpot+PitchRadiusAZpot*BodySecondExpander+4*BoxThickness+40,-100,-0.1]) cylinder(h=BoxThickness,d=60, center=false, $fn=60);
+                }
             }
             if(PartNumber <0){
                 // - 1/2
@@ -152,6 +157,14 @@ if(PartNumber ==0){
            }
             translate([0,RotatorMountingPointsPitch/2,-0.2]) cylinder(h=BoxThickness+0.2,d=RotatorMountingPointsDiameter, center=false, $fn=60);
             translate([0,-RotatorMountingPointsPitch/2,-0.2]) cylinder(h=BoxThickness+0.2,d=RotatorMountingPointsDiameter, center=false, $fn=60);
+            if(TorqueMountingPoints==1){
+                translate([PitchRadiusBig+PitchRadiusAZpot+PitchRadiusAZpot*BodySecondExpander+4*BoxThickness+40,100,-0.2]) cylinder(h=BoxThickness+0.2,d=6.2, center=false, $fn=60);
+                translate([PitchRadiusBig+PitchRadiusAZpot+PitchRadiusAZpot*BodySecondExpander+4*BoxThickness+40,50,-0.2]) cylinder(h=BoxThickness+0.2,d=6.2, center=false, $fn=60);
+                translate([PitchRadiusBig+PitchRadiusAZpot+PitchRadiusAZpot*BodySecondExpander+4*BoxThickness+40,0,-0.2]) cylinder(h=BoxThickness+0.2,d=6.2, center=false, $fn=60);
+                translate([PitchRadiusBig+PitchRadiusAZpot+PitchRadiusAZpot*BodySecondExpander+4*BoxThickness+40,-50,-0.2]) cylinder(h=BoxThickness+0.2,d=6.2, center=false, $fn=60);
+                translate([PitchRadiusBig+PitchRadiusAZpot+PitchRadiusAZpot*BodySecondExpander+4*BoxThickness+40,-100,-0.2]) cylinder(h=BoxThickness+0.2,d=6.2, center=false, $fn=60);
+            }
+
             if( CircularPitch>CircularPitchLimitUnderWhichDisableEndstopAndPotetniometer ){
                 rotate([0,0,-120+30]) translate([PitchRadiusBig+PitchRadiusAZpot,0,-0.2]) cylinder(h=BoxThickness+0.2, d=FlangeScrewDiameter+ScrewHoleTolerance, center=false, $fn=30);
                 rotate([0,0,-120-30]) translate([PitchRadiusBig+PitchRadiusAZpot,0,-0.2]) cylinder(h=BoxThickness+0.2, d=FlangeScrewDiameter+ScrewHoleTolerance, center=false, $fn=30);

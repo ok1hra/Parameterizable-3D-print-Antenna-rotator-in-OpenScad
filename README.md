@@ -20,6 +20,10 @@
 - [S_out.3mf](S_out.3mf)
 
 ### M size (recomended)
+[![Torque](https://img.youtube.com/vi/XpkWt55Bdf4/0.jpg)](https://www.youtube.com/watch?v=XpkWt55Bdf4)
+<img src="https://raw.githubusercontent.com/ok1hra/Parameterizable-3D-print-Antenna-rotator-in-OpenScad/main/M-01.jpg" height="150">
+<img src="https://raw.githubusercontent.com/ok1hra/Parameterizable-3D-print-Antenna-rotator-in-OpenScad/main/M-02.jpg" height="150">
+- Max torque **2200 kg/cm (215 N/m)**
 - [BOM](M.echo)
 - Steel cover [.DXF](M.DXF)
 - Steel output terminal [.DXF](Mout.DXF)
