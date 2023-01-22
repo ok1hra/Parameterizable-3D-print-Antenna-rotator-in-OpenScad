@@ -1,11 +1,11 @@
 # Parameterizable 3D print Antenna rotator in OpenScad
-- Three predefined size (S,M,XL)
+- Three predefined sizes (S,M,XL)
 - Included terminal for install motor from cordless drill
 - Without nuts (tapered holes)
 - DXF export lasered steel cover
 - BOM included
 - With Azimuth potentiometer (M,XL)
-- With Homing endstop, for uing with stepper motor (M,XL)
+- With Homing endstop, for using with stepper motor (M,XL)
 
 ## Output files
 - Source [OpenScad file](parametric-3d-rotator.scad) for design customisation
@@ -19,7 +19,7 @@
 - [S_in.3mf](S_in.3mf)
 - [S_out.3mf](S_out.3mf)
 
-### M size (recomended)
+### M size (recommended)
 <img src="https://raw.githubusercontent.com/ok1hra/Parameterizable-3D-print-Antenna-rotator-in-OpenScad/main/M-01.jpg" height="150"><img src="https://raw.githubusercontent.com/ok1hra/Parameterizable-3D-print-Antenna-rotator-in-OpenScad/main/M-02.jpg" height="150">
 
 - Max torque **2200 kg/cm (215 N/m)**
