@@ -41,7 +41,7 @@
     IndentedDiameter                =   7       ;// part #1
     EndstopRotate                   = 165       ;// do not change
     CircularPitchLimitUnderWhichDisableEndstopAndPotetniometer = 390   ;// I recommend not to change, because not space in small design
-    TorqueMountingPoints = 0        ;// [0] only for measure
+    TorqueMountingPoints            = 0        ;// [0] only for measure
     DXFexport                       =   0       ;// [0-1] off/on for part #0 and #13
     PartNumber                      =   -7       ;// export parts [0-13], preview all [negative value]
     
@@ -151,7 +151,7 @@ if(PartNumber ==0){
                 }
                 rotate([0,0,a+60]){
                     translate([-PitchRadiusBig-PitchRadiusSmall,0,-0.2]) {
-                        cylinder(h=BoxThickness+0.2, d=FlangeScrewDiameter+ScrewHoleTolerance, center=false, $fn=60);
+                        cylinder(h=BoxThickness+0.2, d=FlangeScrewDiameter*0.85, center=false, $fn=60);
                     }
                 }
            }
@@ -198,7 +198,7 @@ if(PartNumber ==0){
                 }
                 rotate([0,0,a+60]){
                     translate([-PitchRadiusBig-PitchRadiusSmall,0,-0.2]) {
-                        cylinder(h=BoxThickness+0.2, d=FlangeScrewDiameter+ScrewHoleTolerance, center=false, $fn=60);
+                        cylinder(h=BoxThickness+0.2, d=FlangeScrewDiameter*0.85, center=false, $fn=60);
                     }
                 }
            }
@@ -238,7 +238,7 @@ if(PartNumber <0){
                 }
                 rotate([0,0,a+60]){
                     translate([-PitchRadiusBig-PitchRadiusSmall,0,-0.2]) {
-                        cylinder(h=BoxThickness+0.2, d=FlangeScrewDiameter+ScrewHoleTolerance, center=false, $fn=60);
+                        cylinder(h=BoxThickness+0.2, d=FlangeScrewDiameter*0.85, center=false, $fn=60);
                     }
                 }
            }
@@ -806,7 +806,7 @@ if(PartNumber ==10||PartNumber <0){
                 rotate([0,0,a+60]){
                     translate([-PitchRadiusBig-PitchRadiusSmall,0,BoxThickness]) {
                         translate([0,0,-0.1]) cylinder(h=AntWheelHeight-1-BoxThickness, d=FlangeScrewDiameter+ScrewHoleTolerance, center=false, $fn=60);
-                        translate([0,0,1.3*BoxThickness]) cylinder(h=AntWheelHeight-1-BoxThickness, d=FlangeScrewDiameter*1.75, center=false, $fn=60);
+                        translate([0,0,1.3*BoxThickness]) cylinder(h=AntWheelHeight-1-BoxThickness, d=FlangeScrewDiameter*2.0, center=false, $fn=60);
                     }
                 }
             }

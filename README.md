@@ -9,6 +9,7 @@
 
 ## Output files
 - Source [OpenScad file](parametric-3d-rotator.scad) for design customisation
+- Render bash script [.sh](render-stl.sh) need modify local path
 
 ### S size
 (compromise design without endstop and azimuth potentiometer)
@@ -20,7 +21,7 @@
 - [S_out.3mf](S_out.3mf)
 
 ### M size (recommended)
-<img src="https://raw.githubusercontent.com/ok1hra/Parameterizable-3D-print-Antenna-rotator-in-OpenScad/main/M-01.jpg" height="150"><img src="https://raw.githubusercontent.com/ok1hra/Parameterizable-3D-print-Antenna-rotator-in-OpenScad/main/M-02.jpg" height="150">
+<img src="https://raw.githubusercontent.com/ok1hra/Parameterizable-3D-print-Antenna-rotator-in-OpenScad/main/M-01.jpg" height="150"><img src="https://raw.githubusercontent.com/ok1hra/Parameterizable-3D-print-Antenna-rotator-in-OpenScad/main/M-02.jpg" height="150"><img src="https://raw.githubusercontent.com/ok1hra/Parameterizable-3D-print-Antenna-rotator-in-OpenScad/main/M-03.jpg" height="150"><img src="https://raw.githubusercontent.com/ok1hra/Parameterizable-3D-print-Antenna-rotator-in-OpenScad/main/M-04.jpg" height="150">
 
 - Max torque **2200 kg/cm (215 N/m)**
 - [Torque video](https://www.youtube.com/watch?v=XpkWt55Bdf4)
