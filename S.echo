@@ -4,6 +4,7 @@ ECHO: "MAX lasered steel cover size (part #0)", 134.017, "x", 240.8, "mm, Thickn
 ECHO: "Transfer ratio: 243"
 ECHO: "Azimuth potentiometer to antenna transfer ratio ", 2, "x"
 ECHO: "Antenna mount screw radius: ", 10, "mm X,Y distance: ", 14.1421, "mm"
+ECHO: "Custom Motor terminal distance: ", 21.6846, "mm Diameter: ", 15.3333
 ECHO: "All input variables: ", 10.2, "|", 0, "|", 4, "|", 0.2, "|", 8, "|", 0, "|", 0, "|", 5, "|", 0.5, "|", 0, "|", 12, "|", 3, "|", 2.1, "|", 6.34, "|", 10.5, "|", 6, "|", 1.25, "|", 1.4, "|", 7, "|", 165, "|", 390, "|", 0, "|", -1, "||", 6, "|", 10.2, "|", 15, "|", 200, "|", 3, "|", 15, "|", 230, "|", 3
 ECHO: "BOM ================================="
 ECHO: "Motor type : stepper NEMA 17"
@@ -13,7 +14,7 @@ ECHO: "4x steel axis, Diameter: ", 8, "mm Length: ", 61.6, "mm"
 ECHO: "Drill for precise machining of the hole for internal axes ", 8.1, "mm"
 ECHO: "4x steel Ant mount srew, Diameter: ", 6, "mm Length: >", 55, "mm, in radius: ", 12, "mm"
 ECHO: "35x steel flange srew, Diameter: ", 4, "mm Length: >", 9, "mm"
-ECHO: "5x nuts for srew, Diameter: ", 4, "mm"
-ECHO: "4x M3 x ", 9, "mm"
+ECHO: "9x nuts for srew, Diameter: ", 4, "mm"
+ECHO: "4x M4 x ", 14, "mm"
 ECHO: "7x steel spacer for inner axis with diameter ", 8, "/<", 7.66667, "mm, and Thickness: ", 2, "mm"
 ECHO: "====================================="

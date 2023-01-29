@@ -4,6 +4,7 @@ ECHO: "MAX lasered steel cover size (part #0)", 223.333, "x", 300.8, "mm, Thickn
 ECHO: "Transfer ratio: 243"
 ECHO: "Azimuth potentiometer to antenna transfer ratio ", 2, "x"
 ECHO: "Antenna mount screw radius: ", 25, "mm X,Y distance: ", 35.3553, "mm"
+ECHO: "Custom Motor terminal distance: ", 37.7124, "mm Diameter: ", 26.6667
 ECHO: "All input variables: ", 10.2, "|", 0, "|", 4, "|", 0.2, "|", 8, "|", 2, "|", 8, "|", 13, "|", 0, "|", 3, "|", 12, "|", 3, "|", 2.1, "|", 6.34, "|", 10.5, "|", 6, "|", 1.25, "|", 1.4, "|", 7, "|", 165, "|", 390, "|", 0, "|", -1, "||", 8, "|", 13.2, "|", 20, "|", 260, "|", 3, "|", 40, "|", 400, "|", 4
 ECHO: "BOM ================================="
 ECHO: "Motor type2: PARKSIDE PBSA 12 D4 (max 28 Nm, 350/1 300 RPM)"
@@ -13,8 +14,8 @@ ECHO: "4x steel axis, Diameter: ", 8, "mm Length: ", 121.767, "mm"
 ECHO: "Drill for precise machining of the hole for internal axes ", 8.1, "mm"
 ECHO: "4x steel Ant mount srew, Diameter: ", 8, "mm Length: >", 85, "mm, in radius: ", 27, "mm"
 ECHO: "35x steel flange srew, Diameter: ", 4, "mm Length: >", 12, "mm"
-ECHO: "5x nuts for srew, Diameter: ", 4, "mm"
-ECHO: "4x M3 x ", 12, "mm"
+ECHO: "9x nuts for srew, Diameter: ", 4, "mm"
+ECHO: "4x M4 x ", 17, "mm"
 ECHO: "7x steel spacer for inner axis with diameter ", 8, "/<", 13.3333, "mm, and Thickness: ", 2, "mm"
 ECHO: "Azimuth potentiometer: https://www.tme.eu/cz/details/3547s-1aa-102a/potenciometry-viceotackove-dratove/bourns/"
 ECHO: "Optional homing endstop for stepper motor: https://www.tme.eu/cz/details/d3v-166-1a5/mikrospinace-snap-action/omron-ocb/"
