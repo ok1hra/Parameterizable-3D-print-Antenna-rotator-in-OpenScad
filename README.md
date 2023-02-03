@@ -7,6 +7,13 @@
 - With Azimuth potentiometer (M,XL)
 - With Homing endstop, for using with stepper motor (M,XL)
 
+## Related components
+<img src="https://raw.githubusercontent.com/ok1hra/Parameterizable-3D-print-Antenna-rotator-in-OpenScad/main/rotator-components.jpg" height="150">
+
+- [IP-rotator firmware](https://github.com/ok1hra/IP-rotator)
+- IP-rotator hardware - TBD
+- [Gyrotator](https://github.com/ok1hra/gyrotator)
+
 ## Output files
 - Source [OpenScad file](parametric-3d-rotator.scad) for design customisation
 - Render bash script [.sh](render-stl.sh) need modify local path
