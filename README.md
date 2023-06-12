@@ -1,11 +1,14 @@
 # Parameterizable 3D print Antenna rotator in OpenScad
-- Three predefined sizes (S,M,XL)
+- Four predefined sizes (S,MS,M,XL)
 - Included terminal for install motor from cordless drill
 - Without nuts (tapered holes)
 - DXF export lasered steel cover
 - BOM included
-- With Azimuth potentiometer (M,XL)
-- With Homing endstop, for using with stepper motor (M,XL)
+- With Azimuth potentiometer (MS,M,XL)
+- With Homing endstop, for using with stepper motor (MS,M,XL)
+
+## Assembly manual
+[RemoteQTH Wiki](https://remoteqth.com/w/doku.php?id=3d-print-rotator)
 
 ## Related components
 <img src="https://raw.githubusercontent.com/ok1hra/Parameterizable-3D-print-Antenna-rotator-in-OpenScad/main/rotator-components.jpg" height="150">
@@ -38,6 +41,13 @@
 - All [.STL](/M)
 - [M_in.3mf](M_in.3mf)
 - [M_out.3mf](M_out.3mf)
+
+### MS size (smaller version for Prusa MK3 MK4 printers)
+- [BOM](MS.echo)
+- Steel cover [.DXF](MS.DXF)
+- Steel output terminal [.DXF](MSout.DXF)
+- All [.STL](/MS)
+- [M_in.3mf](MS_in.3mf)
 
 ### XL size
 - [BOM](XL.echo)

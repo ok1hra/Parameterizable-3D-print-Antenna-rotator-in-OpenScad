@@ -1,11 +1,11 @@
 ECHO: "PARAMETERS ============================"
-ECHO: "MAX printed size (part #7)", 134.017, "x", 134.616, "mm"
-ECHO: "MAX lasered steel cover size (part #0)", 134.017, "x", 240.8, "mm, Thickness: ", 3, "mm"
+ECHO: "MAX printed size (part #7)", 137.083, "x", 134.616, "mm"
+ECHO: "MAX lasered steel cover size (part #0)", 137.083, "x", 240.8, "mm, Thickness: ", 3, "mm"
 ECHO: "Transfer ratio: 243"
-ECHO: "Azimuth potentiometer to antenna transfer ratio ", 2, "x"
+ECHO: "Azimuth potentiometer to antenna transfer ratio ", 1.8, "x"
 ECHO: "Antenna mount screw radius: ", 10, "mm X,Y distance: ", 14.1421, "mm"
 ECHO: "Custom Motor terminal distance: ", 21.6846, "mm Diameter: ", 15.3333
-ECHO: "All input variables: ", 10.2, "|", 0, "|", 4, "|", 0.2, "|", 8, "|", 0, "|", 0, "|", 5, "|", 0.5, "|", 0, "|", 12, "|", 3, "|", 2.1, "|", 6.34, "|", 10.5, "|", 6, "|", 1.25, "|", 1.4, "|", 7, "|", 165, "|", 390, "|", 0, "|", -1, "||", 6, "|", 10.2, "|", 15, "|", 200, "|", 3, "|", 15, "|", 230, "|", 3
+ECHO: "All input variables: ", 10.2, "|", 0, "|", 4, "|", 0.2, "|", 8, "|", 0, "|", 0, "|", 5, "|", 0.5, "|", 0, "|", 12, "|", 3, "|", 2.1, "|", 6.34, "|", 10.5, "|", 8, "|", 1.25, "|", 1.4, "|", 7, "|", 165, "|", 390, "|", 0, "|", -1, "||", 6, "|", 10.2, "|", 15, "|", 200, "|", 3, "|", 15, "|", 230, "|", 3
 ECHO: "BOM ================================="
 ECHO: "Motor type : stepper NEMA 17"
 ECHO: "Lasered steel cover with Thickness: ", 3, "mm by .DXF fie"

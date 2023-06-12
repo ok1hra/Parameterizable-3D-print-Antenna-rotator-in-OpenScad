@@ -1,11 +1,11 @@
 ECHO: "PARAMETERS ============================"
-ECHO: "MAX printed size (part #7)", 279.167, "x", 280.47, "mm"
-ECHO: "MAX lasered steel cover size (part #0)", 279.167, "x", 320.8, "mm, Thickness: ", 5, "mm"
+ECHO: "MAX printed size (part #7)", 285.833, "x", 280.47, "mm"
+ECHO: "MAX lasered steel cover size (part #0)", 285.833, "x", 320.8, "mm, Thickness: ", 5, "mm"
 ECHO: "Transfer ratio: 243"
-ECHO: "Azimuth potentiometer to antenna transfer ratio ", 2, "x"
+ECHO: "Azimuth potentiometer to antenna transfer ratio ", 1.8, "x"
 ECHO: "Antenna mount screw radius: ", 35, "mm X,Y distance: ", 49.4975, "mm"
 ECHO: "Custom Motor terminal distance: ", 47.1405, "mm Diameter: ", 33.3333
-ECHO: "All input variables: ", 10.2, "|", 0, "|", 4, "|", 0.2, "|", 8, "|", 2, "|", 8, "|", 13, "|", 0, "|", 3, "|", 12, "|", 3, "|", 2.1, "|", 6.34, "|", 10.5, "|", 6, "|", 1.25, "|", 1.4, "|", 7, "|", 165, "|", 390, "|", 0, "|", -1, "||", 8, "|", 13.2, "|", 20, "|", 280, "|", 3, "|", 50, "|", 500, "|", 5
+ECHO: "All input variables: ", 10.2, "|", 0, "|", 4, "|", 0.2, "|", 8, "|", 2, "|", 8, "|", 13, "|", 0, "|", 3, "|", 12, "|", 3, "|", 2.1, "|", 6.34, "|", 10.5, "|", 8, "|", 1.25, "|", 1.4, "|", 7, "|", 165, "|", 390, "|", 0, "|", -1, "||", 8, "|", 13.2, "|", 20, "|", 280, "|", 3, "|", 50, "|", 500, "|", 5
 ECHO: "BOM ================================="
 ECHO: "Motor type2: PARKSIDE PBSA 12 D4 (max 28 Nm, 350/1 300 RPM)"
 ECHO: "Lasered steel cover with Thickness: ", 5, "mm by .DXF fie"

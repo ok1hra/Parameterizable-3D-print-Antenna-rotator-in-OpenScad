@@ -35,7 +35,7 @@
     PlainBearingHeight              =   2.1     ;// smaller than VerticalSpacing
     PotentiometerAxisDiameter       =   6.34    ;// according to the selected potentiometer
     PotentiometerMountAxisDiameter  =  10.5     ;// according to the selected potentiometer
-    PotentiometerExpand             =   6       ;// number of  teeth
+    PotentiometerExpand             =   6+2       ;// number of  teeth
     BodyPrimaryExpander             =   1.25    ;// bigger than 1.2
     BodySecondExpander              =   1.4     ;// bigger than 1.2
     IndentedDiameter                =   7       ;// part #1
@@ -43,7 +43,7 @@
     CircularPitchLimitUnderWhichDisableEndstopAndPotetniometer = 390   ;// I recommend not to change, because not space in small design
     TorqueMountingPoints            = 0        ;// [0] only for measure
     DXFexport                       =   0       ;// [0-1] off/on for part #0 and #13
-    PartNumber                      =   -7       ;// export parts [0-13], preview all [negative value]
+    PartNumber                      =    -13       ;// export parts [0-13], preview all [negative value]
     
 // ----------------- Small size---------------------------------
     
@@ -55,6 +55,17 @@
 //    FirstHeight                     =  15       ;// gear height number one is used to calculate the height of the others gear
 //    CircularPitch                   = 230       ;
 //    BoxThickness                    =   3       ;// wall thickness of part number seven
+
+// ----------------- Small, but usable---------------------------------
+
+//    AntMountScrewDiameter           =   8       ;// it must be sufficiently robust  (>6)
+//    AntMountScrewHead               =  13.2     ;// measure the screw used (M8 13.2, M6 10.2)
+//    AntWheelHeight                  =  20       ;// bigger than 15
+//    RotatorMountingPointsPitch      = 260       ;// check that it exceeds the dimension of part number seven
+//    TransferRatio                   =   3       ;// full transfer ratio for 3 = 243 | for 4 = 1024
+//    FirstHeight                     =  40-10       ;// gear height number one is used to calculate the height of the others gear
+//    CircularPitch                   = 400       ;
+//    BoxThickness                    =   4       ;// wall thickness of part number seven
 
 // ----------------- Medium size---------------------------------
 
@@ -507,8 +518,8 @@ if(PartNumber ==5||PartNumber <0){
             }
         }
         // assembled V cut
-//        translate([-PitchRadiusSmall*0.7,0,-FirstHeight-VerticalSpacing-FirstHeight/TransferRatio*1.5-FirstHeight/TransferRatio-3*VerticalSpacing-0.01])
-//        rotate([0,0,+135]) cube([PitchRadiusSmall,PitchRadiusSmall,VerticalSpacing]);
+        translate([-PitchRadiusSmall*0.7,0,-FirstHeight-VerticalSpacing-FirstHeight/TransferRatio*1.5-FirstHeight/TransferRatio-3*VerticalSpacing-0.01])
+        rotate([0,0,+135]) cube([PitchRadiusSmall,PitchRadiusSmall,VerticalSpacing]);
     }
 }
 
@@ -665,7 +676,7 @@ if(PartNumber ==7||PartNumber <-0){
         }
 
         // - flange screw
-        FlangeScrew(4*BoxThickness, FlangeScrewDiameter+ScrewHoleTolerance, FlangeScrewDiameter-0.5);
+        FlangeScrew(4.2*BoxThickness, FlangeScrewDiameter+ScrewHoleTolerance, FlangeScrewDiameter-0.5-0.5);
         if(PartNumber >0){
             // TXT
             translate([-PitchRadiusBig-PitchRadiusSmall*4+2*BoxThickness,0,-FirstHeight-VerticalSpacing-FirstHeight/TransferRatio*1.5-FirstHeight/TransferRatio-2*FirstHeight/TransferRatio/2-4*VerticalSpacing-PlainBearingHeight-3*BoxThickness+0.3]) rotate([180,0,-30]){
@@ -734,7 +745,7 @@ if(PartNumber ==9){
         difference(){
             if(CircularPitch>CircularPitchLimitUnderWhichDisableEndstopAndPotetniometer){
                 translate([-PitchRadiusBig-PitchRadiusSmall,0,])
-                    cylinder(h=FirstHeight/TransferRatio/2+VerticalSpacing, d=2.5*InAxisDiameter, center=false, $fn=60);
+                    cylinder(h=FirstHeight/TransferRatio/2+VerticalSpacing, d=2.0*InAxisDiameter, center=false, $fn=60);
             }else{
                 translate([-PitchRadiusBig-PitchRadiusSmall,0,0])
                     cylinder(h=FirstHeight/TransferRatio/2+VerticalSpacing, d=1.5*InAxisDiameter,center=false, $fn=60);
@@ -747,7 +758,7 @@ if(PartNumber ==9){
         difference(){
             if(CircularPitch>CircularPitchLimitUnderWhichDisableEndstopAndPotetniometer){
                 translate([-PitchRadiusBig-PitchRadiusSmall,0,0])
-                    cylinder(h=FirstHeight/TransferRatio+2*FirstHeight/TransferRatio/2+3*VerticalSpacing, d=2.5*InAxisDiameter, center=false, $fn=60);
+                    cylinder(h=FirstHeight/TransferRatio+2*FirstHeight/TransferRatio/2+3*VerticalSpacing, d=2.0*InAxisDiameter, center=false, $fn=60);
             }else{
                 translate([-PitchRadiusBig-PitchRadiusSmall,0,0])
                     cylinder(h=FirstHeight/TransferRatio+2*FirstHeight/TransferRatio/2+3*VerticalSpacing, d=1.5*InAxisDiameter,center=false, $fn=60);
@@ -760,7 +771,7 @@ if(PartNumber ==9){
         difference(){
             if(CircularPitch>CircularPitchLimitUnderWhichDisableEndstopAndPotetniometer){
                 translate([-PitchRadiusBig-PitchRadiusSmall,0,0])
-                    cylinder(h=FirstHeight/TransferRatio+2*FirstHeight/TransferRatio/2+3*VerticalSpacing, d=2.5*InAxisDiameter, center=false, $fn=60);
+                    cylinder(h=FirstHeight/TransferRatio+2*FirstHeight/TransferRatio/2+3*VerticalSpacing, d=2.0*InAxisDiameter, center=false, $fn=60);
             }else{
                 translate([-PitchRadiusBig-PitchRadiusSmall,0,0])
                     cylinder(h=FirstHeight/TransferRatio+2*FirstHeight/TransferRatio/2+3*VerticalSpacing, d=1.5*InAxisDiameter,center=false, $fn=60);
@@ -819,7 +830,7 @@ if(PartNumber ==10||PartNumber <0){
                 }
                 rotate([0,0,a+60]){
                     translate([-PitchRadiusBig-PitchRadiusSmall,0,BoxThickness]) {
-                        translate([0,0,-0.1]) cylinder(h=AntWheelHeight-1-BoxThickness, d=FlangeScrewDiameter+ScrewHoleTolerance, center=false, $fn=60);
+                        translate([0,0,-0.1]) cylinder(h=AntWheelHeight-1-BoxThickness, d=FlangeScrewDiameter+ScrewHoleTolerance*2.5, center=false, $fn=60);
                         translate([0,0,1.3*BoxThickness]) cylinder(h=AntWheelHeight-1-BoxThickness, d=FlangeScrewDiameter*2.0, center=false, $fn=60);
                     }
                 }
@@ -834,8 +845,8 @@ if(PartNumber ==10||PartNumber <0){
             }
             if(CircularPitch>CircularPitchLimitUnderWhichDisableEndstopAndPotetniometer ){
                 // endstop
-                rotate([0,0,EndstopRotate]) translate([33,-5-PitchRadiusBig-PitchRadiusSmall+InAxisDiameter,BoxThickness-0.1]) cylinder(h=4, d=6.5, center=false, $fn=30);
-                rotate([0,0,EndstopRotate]) translate([33-22.2,-5-10.3-PitchRadiusBig-PitchRadiusSmall+InAxisDiameter, BoxThickness-0.1]) cylinder(h=4, d=6.5, center=false, $fn=30);
+//                rotate([0,0,EndstopRotate]) translate([33,-5-PitchRadiusBig-PitchRadiusSmall+InAxisDiameter,BoxThickness-0.1]) cylinder(h=4, d=6.5, center=false, $fn=30);
+//                rotate([0,0,EndstopRotate]) translate([33-22.2,-5-10.3-PitchRadiusBig-PitchRadiusSmall+InAxisDiameter, BoxThickness-0.1]) cylinder(h=4, d=6.5, center=false, $fn=30);
 
             }
        }
@@ -925,7 +936,25 @@ if(PartNumber ==13){
 
     }else{
         rotate([180,0,0]) difference(){
+            union(){
                 translate([0,0,BoxThickness+2.01]) cylinder(h=AntWheelHeight-BoxThickness-2+BoxThickness*0.75, d1=(PitchRadiusBig+PitchRadiusSmall)*2+3.5*InAxisDiameter+BoxThickness*1.5, d2=(PitchRadiusBig+PitchRadiusSmall)*2+2*InAxisDiameter+BoxThickness, center=false, $fn=360);
+                for (a =[0:5:179]){
+                    hull(){
+                        marker(0.1, a, 0, 0.5, 0);
+                        marker(0.1, a, 1, 0.01, 0);
+                    }
+                }
+                for (a =[0:10:179]){
+                    hull(){
+                        marker(0.3, a, 0, 0.5, 0);
+                        marker(0.3, a, 1, 0.01, 0);
+                    }
+                }
+                    hull(){
+                        marker(1, 0, 0, 0.5, 1);
+                        marker(1, 0, 1, 0.01, 1);
+                    }
+            }
                 if(PartNumber <0){
                     // - 1/2
                     translate([200,0,-1]) rotate([0,0,180]) cube([400,200,200]);
@@ -1012,6 +1041,20 @@ if(PartNumber ==73){
 }
 
 //---------------------------------------------------------------------------------------------------------------
+
+module marker(ZZ,AA,YY, XX, EN){
+    rotate([0,0,AA]) difference(){
+                    translate([0,0,BoxThickness+2.01]) cylinder(h=(AntWheelHeight-BoxThickness-2+BoxThickness*0.75), d1=(PitchRadiusBig+PitchRadiusSmall)*2+3.5*InAxisDiameter+BoxThickness*1.5+YY, d2=(PitchRadiusBig+PitchRadiusSmall)*2+2*InAxisDiameter+BoxThickness+YY, center=false, $fn=360);
+                    translate([-((PitchRadiusBig+PitchRadiusSmall)*2+3.5*InAxisDiameter+BoxThickness*1.5+10)/2, XX, BoxThickness+1.99-1]) cube([(PitchRadiusBig+PitchRadiusSmall)*2+3.5*InAxisDiameter+BoxThickness*1.5+10, (PitchRadiusBig+PitchRadiusSmall)*2+3.5*InAxisDiameter+BoxThickness*1.5, AntWheelHeight-BoxThickness-2+BoxThickness*0.75+2]);
+                    rotate([0,0,180]) translate([-((PitchRadiusBig+PitchRadiusSmall)*2+3.5*InAxisDiameter+BoxThickness*1.5+10)/2, XX, BoxThickness+1.99-1]) cube([(PitchRadiusBig+PitchRadiusSmall)*2+3.5*InAxisDiameter+BoxThickness*1.5+10, (PitchRadiusBig+PitchRadiusSmall)*2+3.5*InAxisDiameter+BoxThickness*1.5, AntWheelHeight-BoxThickness-2+BoxThickness*0.75+2]);
+                    translate([0,0,BoxThickness+2.01+(AntWheelHeight-BoxThickness-2+BoxThickness*0.75)*ZZ]) cylinder(h=(AntWheelHeight-BoxThickness-2+BoxThickness*0.75), d=(PitchRadiusBig+PitchRadiusSmall)*2+3.5*InAxisDiameter+BoxThickness*1.5+1,  center=false, $fn=360);
+                    if(EN==1){
+                    rotate([0,0,90]) translate([-((PitchRadiusBig+PitchRadiusSmall)*2+3.5*InAxisDiameter+BoxThickness*1.5+10)/2, XX, BoxThickness+1.99-1]) cube([(PitchRadiusBig+PitchRadiusSmall)*2+3.5*InAxisDiameter+BoxThickness*1.5+10, (PitchRadiusBig+PitchRadiusSmall)*2+3.5*InAxisDiameter+BoxThickness*1.5, AntWheelHeight-BoxThickness-2+BoxThickness*0.75+2]);
+                    }
+    }
+}
+
+
 module Binder(DIA){
     difference(){
         cylinder(h=6, d=DIA+4, $fn=60, center=true);
