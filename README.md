@@ -9,6 +9,7 @@
 
 ## Assembly manual
 [RemoteQTH Wiki](https://remoteqth.com/w/doku.php?id=3d-print-rotator)
+
 [GitHub copy](Assembly-manual.md)
 
 ## Related components

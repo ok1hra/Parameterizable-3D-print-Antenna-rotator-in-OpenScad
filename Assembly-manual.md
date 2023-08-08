@@ -1,10 +1,7 @@
 # 3D print rotator (revision 2023)
 
-[Source files on
-GitHub](https://github.com/ok1hra/Parameterizable-3D-print-Antenna-rotator-in-OpenScad#m-size-recommended)  
-I include the source file in OpenScad and several preset exports, in
-dimensions S, M, MS, XL. Size M is recommended, MS reduced for Prusa MK3
-and MK4 printers. I also include the following data for each dimension:
+[Source files on GitHub](https://github.com/ok1hra/Parameterizable-3D-print-Antenna-rotator-in-OpenScad#m-size-recommended)  
+I include the source file in OpenScad and several preset exports, in dimensions S, M, MS, XL. Size M is recommended, MS reduced for Prusa MK3 and MK4 printers. I also include the following data for each dimension:
 
 -   BOM
 -   Steel cover .DXF
@@ -143,135 +140,135 @@ Mounted in step 16</td>
 1.  Before disassembly drill tool for extract motor, set the gear ratio
     to 1 (slow), and the torque to maximum (drill)
     <img src="https://raw.githubusercontent.com/ok1hra/Parameterizable-3D-print-Antenna-rotator-in-OpenScad/main/img/wiki-3d-rot1-01.jpg" width="600" alt="https://raw.githubusercontent.com/ok1hra/Parameterizable-3D-print-Antenna-rotator-in-OpenScad/main/img/wiki-3d-rot1-01.jpg" />  
-    - Remove the two U-shaped springs from the battery space  
+1.  Remove the two U-shaped springs from the battery space  
     <img src="https://raw.githubusercontent.com/ok1hra/Parameterizable-3D-print-Antenna-rotator-in-OpenScad/main/img/wiki-3d-rot1-02.jpg" width="300" alt="https://raw.githubusercontent.com/ok1hra/Parameterizable-3D-print-Antenna-rotator-in-OpenScad/main/img/wiki-3d-rot1-02.jpg" />
     <img src="https://raw.githubusercontent.com/ok1hra/Parameterizable-3D-print-Antenna-rotator-in-OpenScad/main/img/wiki-3d-rot1-03.jpg" width="300" alt="https://raw.githubusercontent.com/ok1hra/Parameterizable-3D-print-Antenna-rotator-in-OpenScad/main/img/wiki-3d-rot1-03.jpg" />  
-    - Unscrew the seven screws, remove the chuck and open cover
+1.  Unscrew the seven screws, remove the chuck and open cover
     ![](https://raw.githubusercontent.com/ok1hra/Parameterizable-3D-print-Antenna-rotator-in-OpenScad/main/img/wiki-3d-rot1-05.jpg)  
-    - Sign polarity on the motor (+ on red wire)  
+1.  Sign polarity on the motor (+ on red wire)  
     <img src="https://raw.githubusercontent.com/ok1hra/Parameterizable-3D-print-Antenna-rotator-in-OpenScad/main/img/wiki-3d-rot1-06.jpg" width="600" alt="https://raw.githubusercontent.com/ok1hra/Parameterizable-3D-print-Antenna-rotator-in-OpenScad/main/img/wiki-3d-rot1-06.jpg" />  
-    - Solder 20 cm of power cable with crimped ends
+1.  Solder 20 cm of power cable with crimped ends
     <img src="https://raw.githubusercontent.com/ok1hra/Parameterizable-3D-print-Antenna-rotator-in-OpenScad/main/img/wiki-3d-rot1-07.jpg" width="600" alt="https://raw.githubusercontent.com/ok1hra/Parameterizable-3D-print-Antenna-rotator-in-OpenScad/main/img/wiki-3d-rot1-07.jpg" />  
-    - The wago terminal block is suitable for general use, for the
+1.  The wago terminal block is suitable for general use, for the
     connection of the Simple Rotator Interface V. use the prescribed
     connector  
     <img src="https://raw.githubusercontent.com/ok1hra/Parameterizable-3D-print-Antenna-rotator-in-OpenScad/main/img/wiki-3d-rot1-08.jpg" width="300" alt="https://raw.githubusercontent.com/ok1hra/Parameterizable-3D-print-Antenna-rotator-in-OpenScad/main/img/wiki-3d-rot1-08.jpg" />
     <img src="https://raw.githubusercontent.com/ok1hra/Parameterizable-3D-print-Antenna-rotator-in-OpenScad/main/img/wiki-3d-rot1-09.jpg" width="300" alt="https://raw.githubusercontent.com/ok1hra/Parameterizable-3D-print-Antenna-rotator-in-OpenScad/main/img/wiki-3d-rot1-09.jpg" />  
-    - Make sure the gear ratio stick is set to the slow position  
+1.  Make sure the gear ratio stick is set to the slow position  
     <img src="https://raw.githubusercontent.com/ok1hra/Parameterizable-3D-print-Antenna-rotator-in-OpenScad/main/img/wiki-3d-rot1-10.jpg" width="400" alt="https://raw.githubusercontent.com/ok1hra/Parameterizable-3D-print-Antenna-rotator-in-OpenScad/main/img/wiki-3d-rot1-10.jpg" />  
-    - Insert the motor into the half of the printed plastic housing
+1.  Insert the motor into the half of the printed plastic housing
     8.stl  
     <img src="https://raw.githubusercontent.com/ok1hra/Parameterizable-3D-print-Antenna-rotator-in-OpenScad/main/img/wiki-3d-rot1-12.jpg" width="400" alt="https://raw.githubusercontent.com/ok1hra/Parameterizable-3D-print-Antenna-rotator-in-OpenScad/main/img/wiki-3d-rot1-12.jpg" />  
-    - The orientation of the motor can be seen in the photo. The plastic
+1.  The orientation of the motor can be seen in the photo. The plastic
     wheel in the middle is facing up.
     ![](https://raw.githubusercontent.com/ok1hra/Parameterizable-3D-print-Antenna-rotator-in-OpenScad/main/img/wiki-3d-rot1-13.jpg)  
-    - Again make sure the gear ratio stick is set to the slow position  
+1.  Again make sure the gear ratio stick is set to the slow position  
     <img src="https://raw.githubusercontent.com/ok1hra/Parameterizable-3D-print-Antenna-rotator-in-OpenScad/main/img/wiki-3d-rot1-14.jpg" width="400" alt="https://raw.githubusercontent.com/ok1hra/Parameterizable-3D-print-Antenna-rotator-in-OpenScad/main/img/wiki-3d-rot1-14.jpg" />  
-    - Apply silicone sealant around the entire perimeter of the plastic
+1.  Apply silicone sealant around the entire perimeter of the plastic
     holder  
     Fix the gearbox spring in the slow position with silicone
     ![](https://raw.githubusercontent.com/ok1hra/Parameterizable-3D-print-Antenna-rotator-in-OpenScad/main/img/wiki-3d-rot1-15.jpg)  
-    - Close the motor using the second pulley of the plastic motor
+1.  Close the motor using the second pulley of the plastic motor
     holder, and secure with a minimum of four M3x10 screws with a lock
     nut on each side
     ![](https://raw.githubusercontent.com/ok1hra/Parameterizable-3D-print-Antenna-rotator-in-OpenScad/main/img/wiki-3d-rot1-16.jpg)  
-    - Install three M3x6 screws around the perimeter so that they do not
+1.  Install three M3x6 screws around the perimeter so that they do not
     collide with the three protrusions from step 8. Tighten very
     sensitively, the screws do not have metal nuts, but screw directly
     into the plastic.  
     <img src="https://raw.githubusercontent.com/ok1hra/Parameterizable-3D-print-Antenna-rotator-in-OpenScad/main/img/wiki-3d-rot1-17.jpg" width="600" alt="https://raw.githubusercontent.com/ok1hra/Parameterizable-3D-print-Antenna-rotator-in-OpenScad/main/img/wiki-3d-rot1-17.jpg" />  
-    - Press the 6.stl gear onto the motor shaft so that the side holes
+1.  Press the 6.stl gear onto the motor shaft so that the side holes
     are directly against the depressions in the motor shaft. Then screw
     three M3x10 screws into the hole - screw in sensitively and stop as
     soon as the resistance increases - it is screwed directly into the
     plastic. We recommend applying secondary glue to the plastic hole
     before inserting the screw.  
     <img src="https://raw.githubusercontent.com/ok1hra/Parameterizable-3D-print-Antenna-rotator-in-OpenScad/main/img/wiki-3d-rot1-18.jpg" width="600" alt="https://raw.githubusercontent.com/ok1hra/Parameterizable-3D-print-Antenna-rotator-in-OpenScad/main/img/wiki-3d-rot1-18.jpg" />  
-    - Attach the entire motor body to the rotator 7.stl main tank using
+1.  Attach the entire motor body to the rotator 7.stl main tank using
     four M4x16 screws with lock nuts
     <img src="https://raw.githubusercontent.com/ok1hra/Parameterizable-3D-print-Antenna-rotator-in-OpenScad/main/img/wiki-3d-rot1-19.jpg" width="300" alt="https://raw.githubusercontent.com/ok1hra/Parameterizable-3D-print-Antenna-rotator-in-OpenScad/main/img/wiki-3d-rot1-19.jpg" />
     <img src="https://raw.githubusercontent.com/ok1hra/Parameterizable-3D-print-Antenna-rotator-in-OpenScad/main/img/wiki-3d-rot1-20.jpg" width="300" alt="https://raw.githubusercontent.com/ok1hra/Parameterizable-3D-print-Antenna-rotator-in-OpenScad/main/img/wiki-3d-rot1-20.jpg" />  
-    - If you will use the Simple Rotator Interface V. to control the
+1.  If you will use the Simple Rotator Interface V. to control the
     rotator, screw its printed box with two M4x16 screws directly to the
     plastic body of the rotator  
     <img src="https://raw.githubusercontent.com/ok1hra/Parameterizable-3D-print-Antenna-rotator-in-OpenScad/main/img/wiki-3d-rot1-21.jpg" width="600" alt="https://raw.githubusercontent.com/ok1hra/Parameterizable-3D-print-Antenna-rotator-in-OpenScad/main/img/wiki-3d-rot1-21.jpg" />  
-    - In the next step, drill out the axes of the plastic parts number
+1.  In the next step, drill out the axes of the plastic parts number
     1, 2, 3, 4, 5 and 9, with a drill with a diameter of 8.2 mm, so that
     they rotate freely on a smooth axis with a diameter of 8 mm.  
     <img src="https://raw.githubusercontent.com/ok1hra/Parameterizable-3D-print-Antenna-rotator-in-OpenScad/main/img/wiki-3d-rot1-22.jpg" width="300" alt="https://raw.githubusercontent.com/ok1hra/Parameterizable-3D-print-Antenna-rotator-in-OpenScad/main/img/wiki-3d-rot1-22.jpg" />
     <img src="https://raw.githubusercontent.com/ok1hra/Parameterizable-3D-print-Antenna-rotator-in-OpenScad/main/img/wiki-3d-rot1-23.jpg" width="300" alt="https://raw.githubusercontent.com/ok1hra/Parameterizable-3D-print-Antenna-rotator-in-OpenScad/main/img/wiki-3d-rot1-23.jpg" />  
-    - Fit the four smoothed axes into the rotator body
+1.  Fit the four smoothed axes into the rotator body
     <img src="https://raw.githubusercontent.com/ok1hra/Parameterizable-3D-print-Antenna-rotator-in-OpenScad/main/img/wiki-3d-rot1-24.jpg" width="600" alt="https://raw.githubusercontent.com/ok1hra/Parameterizable-3D-print-Antenna-rotator-in-OpenScad/main/img/wiki-3d-rot1-24.jpg" />  
-    - You put the metal washer on the central axis, and the low ring
+1.  You put the metal washer on the central axis, and the low ring
     from the 9.stl on the opposite axis of the motor
     ![](https://raw.githubusercontent.com/ok1hra/Parameterizable-3D-print-Antenna-rotator-in-OpenScad/main/img/wiki-3d-rot1-25.jpg)  
-    - Now you will fit the gears. Apply universal lubricant to them
+1.  Now you will fit the gears. Apply universal lubricant to them
     before putting them on
     <img src="https://raw.githubusercontent.com/ok1hra/Parameterizable-3D-print-Antenna-rotator-in-OpenScad/main/img/wiki-3d-rot1-26.jpg" width="600" alt="https://raw.githubusercontent.com/ok1hra/Parameterizable-3D-print-Antenna-rotator-in-OpenScad/main/img/wiki-3d-rot1-26.jpg" />  
-    - Place gear number five on the central axis, and the metal washer
+1.  Place gear number five on the central axis, and the metal washer
     on the opposite axis of the motor
     <img src="https://raw.githubusercontent.com/ok1hra/Parameterizable-3D-print-Antenna-rotator-in-OpenScad/main/img/wiki-3d-rot1-27.jpg" width="600" alt="https://raw.githubusercontent.com/ok1hra/Parameterizable-3D-print-Antenna-rotator-in-OpenScad/main/img/wiki-3d-rot1-27.jpg" />  
-    - The previous picture has the center gear turned backwards. Turn
+1.  The previous picture has the center gear turned backwards. Turn
     the bottom gear so that the V slot on the top faces the next gear
     above it. Then put gear number 4 on the axis opposite to the motor
     so that its V slot is facing the center axis, and slide the metal
     washer onto the center axis.
     ![](https://raw.githubusercontent.com/ok1hra/Parameterizable-3D-print-Antenna-rotator-in-OpenScad/main/img/wiki-3d-rot1-28.jpg)  
-    - On the two free axes, you put on the higher printed washers of the
+1.  On the two free axes, you put on the higher printed washers of the
     9th stl and on all the outer axes, you put on three metal washers.
     <img src="https://raw.githubusercontent.com/ok1hra/Parameterizable-3D-print-Antenna-rotator-in-OpenScad/main/img/wiki-3d-rot1-29.jpg" width="600" alt="https://raw.githubusercontent.com/ok1hra/Parameterizable-3D-print-Antenna-rotator-in-OpenScad/main/img/wiki-3d-rot1-29.jpg" />  
-    - Detail of the orientation of the cogwheels, including the
+1.  Detail of the orientation of the cogwheels, including the
     V-groove  
     <img src="https://raw.githubusercontent.com/ok1hra/Parameterizable-3D-print-Antenna-rotator-in-OpenScad/main/img/wiki-3d-rot1-30.jpg" width="400" alt="https://raw.githubusercontent.com/ok1hra/Parameterizable-3D-print-Antenna-rotator-in-OpenScad/main/img/wiki-3d-rot1-30.jpg" />  
-    - Before fitting other gears, don't forget to lubricate them with
+1.  Before fitting other gears, don't forget to lubricate them with
     universal grease  
     <img src="https://raw.githubusercontent.com/ok1hra/Parameterizable-3D-print-Antenna-rotator-in-OpenScad/main/img/wiki-3d-rot1-31.jpg" width="400" alt="https://raw.githubusercontent.com/ok1hra/Parameterizable-3D-print-Antenna-rotator-in-OpenScad/main/img/wiki-3d-rot1-31.jpg" />  
-    - Place the 3.stl gear on the center axis so that the V splines
+1.  Place the 3.stl gear on the center axis so that the V splines
     point to the surrounding axes  
     <img src="https://raw.githubusercontent.com/ok1hra/Parameterizable-3D-print-Antenna-rotator-in-OpenScad/main/img/wiki-3d-rot1-32.jpg" width="600" alt="https://raw.githubusercontent.com/ok1hra/Parameterizable-3D-print-Antenna-rotator-in-OpenScad/main/img/wiki-3d-rot1-32.jpg" />  
-    - Place the three 2.stl gears on the edge of the axle so that the
+1.  Place the three 2.stl gears on the edge of the axle so that the
     number marking points to the center axle
     <img src="https://raw.githubusercontent.com/ok1hra/Parameterizable-3D-print-Antenna-rotator-in-OpenScad/main/img/wiki-3d-rot1-33.jpg" width="600" alt="https://raw.githubusercontent.com/ok1hra/Parameterizable-3D-print-Antenna-rotator-in-OpenScad/main/img/wiki-3d-rot1-33.jpg" />  
-    - Detail of mutual position  
+1.  Detail of mutual position  
     <img src="https://raw.githubusercontent.com/ok1hra/Parameterizable-3D-print-Antenna-rotator-in-OpenScad/main/img/wiki-3d-rot1-35.jpg" width="600" alt="https://raw.githubusercontent.com/ok1hra/Parameterizable-3D-print-Antenna-rotator-in-OpenScad/main/img/wiki-3d-rot1-35.jpg" />  
-    - Place the metal washer on the center axis
+1.  Place the metal washer on the center axis
     ![](https://raw.githubusercontent.com/ok1hra/Parameterizable-3D-print-Antenna-rotator-in-OpenScad/main/img/wiki-3d-rot1-37.jpg)  
-    - Insert four M8 screws into gear 1.stl  
+1.  Insert four M8 screws into gear 1.stl  
     <img src="https://raw.githubusercontent.com/ok1hra/Parameterizable-3D-print-Antenna-rotator-in-OpenScad/main/img/wiki-3d-rot1-38.jpg" width="600" alt="https://raw.githubusercontent.com/ok1hra/Parameterizable-3D-print-Antenna-rotator-in-OpenScad/main/img/wiki-3d-rot1-38.jpg" />  
-    - Place the 1.stl gear on the center axis
+1.  Place the 1.stl gear on the center axis
     ![](https://raw.githubusercontent.com/ok1hra/Parameterizable-3D-print-Antenna-rotator-in-OpenScad/main/img/wiki-3d-rot1-39.jpg)  
-    - Now screw the three-step potentiometer to part 12.stl, with
+1.  Now screw the three-step potentiometer to part 12.stl, with
     orientation according to the picture.  
     <img src="https://raw.githubusercontent.com/ok1hra/Parameterizable-3D-print-Antenna-rotator-in-OpenScad/main/img/wiki-3d-rot1-40.jpg" width="600" alt="https://raw.githubusercontent.com/ok1hra/Parameterizable-3D-print-Antenna-rotator-in-OpenScad/main/img/wiki-3d-rot1-40.jpg" />  
-    - Using a vice, very carefully press the 11.STL gear onto the
+1.  Using a vice, very carefully press the 11.STL gear onto the
     potentiometer shaft as shown in the picture
     ![](https://raw.githubusercontent.com/ok1hra/Parameterizable-3D-print-Antenna-rotator-in-OpenScad/main/img/wiki-3d-rot1-41.jpg)  
-    - Solder three 0.5mm^2 wires, 20cm long, to the potentiometer. Crimp
+1.  Solder three 0.5mm^2 wires, 20cm long, to the potentiometer. Crimp
     the ends with end caps
     <img src="https://raw.githubusercontent.com/ok1hra/Parameterizable-3D-print-Antenna-rotator-in-OpenScad/main/img/wiki-3d-rot1-42.jpg" width="600" alt="https://raw.githubusercontent.com/ok1hra/Parameterizable-3D-print-Antenna-rotator-in-OpenScad/main/img/wiki-3d-rot1-42.jpg" />  
-    - Cut M4 threads into the three holes of the main stainless steel
+1.  Cut M4 threads into the three holes of the main stainless steel
     plate as shown in the picture
     ![](https://raw.githubusercontent.com/ok1hra/Parameterizable-3D-print-Antenna-rotator-in-OpenScad/main/img/wiki-3d-rot1-44.jpg)  
-    - Set the azimuth potentiometer to the center position, and screw it
+1.  Set the azimuth potentiometer to the center position, and screw it
     to the main stainless plate using two M4x16 screws, plus nuts.  
     <img src="https://raw.githubusercontent.com/ok1hra/Parameterizable-3D-print-Antenna-rotator-in-OpenScad/main/img/wiki-3d-rot1-45.jpg" width="400" alt="https://raw.githubusercontent.com/ok1hra/Parameterizable-3D-print-Antenna-rotator-in-OpenScad/main/img/wiki-3d-rot1-45.jpg" />
     <img src="https://raw.githubusercontent.com/ok1hra/Parameterizable-3D-print-Antenna-rotator-in-OpenScad/main/img/wiki-3d-rot1-46.jpg" width="350" alt="https://raw.githubusercontent.com/ok1hra/Parameterizable-3D-print-Antenna-rotator-in-OpenScad/main/img/wiki-3d-rot1-46.jpg" />  
-    - Push the wires through the body of the rotator - pay attention to
+1.  Push the wires through the body of the rotator - pay attention to
     the orientation - they belong to the tunnel located below
     ![](https://raw.githubusercontent.com/ok1hra/Parameterizable-3D-print-Antenna-rotator-in-OpenScad/main/img/wiki-3d-rot1-47.jpg)  
-    - Place the main stainless steel plate on the rotator body so that
+1.  Place the main stainless steel plate on the rotator body so that
     the outer axes pass through the plate outwards and secure 21 M4x16
     screws. Tighten the screws sensitively, they are cut directly into
     the plastic ![](https://raw.githubusercontent.com/ok1hra/Parameterizable-3D-print-Antenna-rotator-in-OpenScad/main/img/wiki-3d-rot1-48.jpg)  
-    - Apply silicone sealant to the perimeter groove of part 10.stl
+1.  Apply silicone sealant to the perimeter groove of part 10.stl
     ![](https://raw.githubusercontent.com/ok1hra/Parameterizable-3D-print-Antenna-rotator-in-OpenScad/main/img/wiki-3d-rot1-49.jpg)  
-    - And screw it with three M4x16 screws to the main stainless plate
+1.  And screw it with three M4x16 screws to the main stainless plate
     <img src="https://raw.githubusercontent.com/ok1hra/Parameterizable-3D-print-Antenna-rotator-in-OpenScad/main/img/wiki-3d-rot1-50.jpg" width="400" alt="https://raw.githubusercontent.com/ok1hra/Parameterizable-3D-print-Antenna-rotator-in-OpenScad/main/img/wiki-3d-rot1-50.jpg" />  
-    - apply a small amount of silicone sealant to the center wheel and
+1.  apply a small amount of silicone sealant to the center wheel and
     then slide part 13.stl onto it
     ![](https://raw.githubusercontent.com/ok1hra/Parameterizable-3D-print-Antenna-rotator-in-OpenScad/main/img/wiki-3d-rot1-51.jpg)  
-    - Now the rotator is complete, ready for use
+1.  Now the rotator is complete, ready for use
     ![](https://raw.githubusercontent.com/ok1hra/Parameterizable-3D-print-Antenna-rotator-in-OpenScad/main/img/wiki-3d-rot1-52.jpg)  
-    - An example of using a rotator under a mast
+1.  An example of using a rotator under a mast
     ![](https://raw.githubusercontent.com/ok1hra/Parameterizable-3D-print-Antenna-rotator-in-OpenScad/main/img/wiki-3d-rot1-54.jpg)  
-    - ![](https://raw.githubusercontent.com/ok1hra/Parameterizable-3D-print-Antenna-rotator-in-OpenScad/main/img/wiki-3d-rot1-55.jpg)  
+1.  ![](https://raw.githubusercontent.com/ok1hra/Parameterizable-3D-print-Antenna-rotator-in-OpenScad/main/img/wiki-3d-rot1-55.jpg)  
