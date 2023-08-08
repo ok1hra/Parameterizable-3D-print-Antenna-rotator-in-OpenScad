@@ -9,6 +9,7 @@
 
 ## Assembly manual
 [RemoteQTH Wiki](https://remoteqth.com/w/doku.php?id=3d-print-rotator)
+[GitHub copy](Assembly-manual.md)
 
 ## Related components
 <img src="https://raw.githubusercontent.com/ok1hra/Parameterizable-3D-print-Antenna-rotator-in-OpenScad/main/rotator-components.jpg" height="150">
