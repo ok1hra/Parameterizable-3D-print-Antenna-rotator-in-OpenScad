@@ -148,6 +148,7 @@ Mounted in step 16</td>
 1.  Sign polarity on the motor (+ on red wire)  
     <img src="https://raw.githubusercontent.com/ok1hra/Parameterizable-3D-print-Antenna-rotator-in-OpenScad/main/img/wiki-3d-rot1-06.jpg" width="600" alt="https://raw.githubusercontent.com/ok1hra/Parameterizable-3D-print-Antenna-rotator-in-OpenScad/main/img/wiki-3d-rot1-06.jpg" />  
 1.  Solder 20 cm of power cable with crimped ends
+
     <img src="https://raw.githubusercontent.com/ok1hra/Parameterizable-3D-print-Antenna-rotator-in-OpenScad/main/img/wiki-3d-rot1-07.jpg" width="600" alt="https://raw.githubusercontent.com/ok1hra/Parameterizable-3D-print-Antenna-rotator-in-OpenScad/main/img/wiki-3d-rot1-07.jpg" />  
 1.  The wago terminal block is suitable for general use, for the
     connection of the Simple Rotator Interface V. use the prescribed
